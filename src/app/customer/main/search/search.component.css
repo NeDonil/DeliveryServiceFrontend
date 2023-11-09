@@ -1,0 +1,10 @@
+.example-form {
+    max-width: 100vw; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.example-full-width {
+    flex: 1;
+}
