@@ -1,0 +1,6 @@
+.products{
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    grid-gap: 20px 8px;
+}

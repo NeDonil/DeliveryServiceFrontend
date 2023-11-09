@@ -1,0 +1,12 @@
+.product-card {
+   max-width: 100vw;
+}
+  
+.mat-card-image{
+    width: 100vw;
+}
+
+.add-button{
+    width:100px;
+    padding: 0 0 0 0;
+}

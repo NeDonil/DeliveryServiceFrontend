@@ -13,10 +13,14 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 import { GroupItemComponent } from './customer/groups/group-item/group-item.component';
 import { MainComponent } from './customer/main/main.component';
 import { SearchComponent } from './customer/main/search/search.component';
+import { ProductsComponent } from './customer/main/products/products.component';
+import { ProductComponent } from './customer/main/products/product/product.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +29,17 @@ import { SearchComponent } from './customer/main/search/search.component';
     CustomerComponent,
     GroupItemComponent,
     MainComponent,
-    SearchComponent
+    SearchComponent,
+    ProductsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule, MatListModule, MatIconModule,
-    FormsModule, MatFormFieldModule, MatInputModule
+    FormsModule, MatFormFieldModule, MatInputModule,
+    MatTooltipModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
