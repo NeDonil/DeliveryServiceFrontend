@@ -12,10 +12,12 @@ import { MatListModule} from '@angular/material/list';
 import { MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDividerModule } from '@angular/material/divider';
+import { AsyncPipe } from '@angular/common';
 
 import { GroupItemComponent } from './customer/groups/group-item/group-item.component';
 import { MainComponent } from './customer/main/main.component';
@@ -25,6 +27,8 @@ import { ProductComponent } from './customer/main/products/product/product.compo
 import { UserComponent } from './customer/order/user/user.component';
 import { BucketComponent } from './customer/order/bucket/bucket.component';
 import { OrderComponent } from './customer/order/order.component';
+import { AddressComponent } from './customer/order/address/address.component';
+import { BucketItemComponent } from './customer/order/bucket/bucket-item/bucket-item.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { OrderComponent } from './customer/order/order.component';
     ProductComponent,
     UserComponent,
     BucketComponent,
-    OrderComponent
+    OrderComponent,
+    AddressComponent,
+    BucketItemComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,8 @@ import { OrderComponent } from './customer/order/order.component';
     BrowserAnimationsModule,
     MatCardModule, MatListModule, MatIconModule,
     FormsModule, MatFormFieldModule, MatInputModule,
-    MatTooltipModule, MatButtonModule, MatAutocompleteModule
+    MatTooltipModule, MatButtonModule, MatAutocompleteModule,
+    ReactiveFormsModule, AsyncPipe, MatDividerModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

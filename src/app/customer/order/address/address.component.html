@@ -1,0 +1,14 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <input type="text"
+                placeholder="Check address"
+                aria-label="Current address"
+                matInput
+                [formControl]="myControl"
+                [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options"[value]="option">{{option}}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
