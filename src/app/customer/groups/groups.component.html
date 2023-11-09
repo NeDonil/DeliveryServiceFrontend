@@ -1,0 +1,9 @@
+
+<div class="app-groups">
+    <mat-card>
+        <mat-list role="list">
+                <app-group-item *ngFor="let group of groups" text={{group.text}} url={{group.url}}></app-group-item>
+        </mat-list>
+    </mat-card>
+</div>
+

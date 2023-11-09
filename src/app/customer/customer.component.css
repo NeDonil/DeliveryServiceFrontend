@@ -1,0 +1,10 @@
+
+.root{
+    width: 100%
+}
+
+.mat-card{
+    border-radius: 10px !important;
+    border: 10px;
+    border-color: black;
+}
