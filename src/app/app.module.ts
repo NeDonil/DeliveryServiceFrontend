@@ -15,12 +15,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { GroupItemComponent } from './customer/groups/group-item/group-item.component';
 import { MainComponent } from './customer/main/main.component';
 import { SearchComponent } from './customer/main/search/search.component';
 import { ProductsComponent } from './customer/main/products/products.component';
 import { ProductComponent } from './customer/main/products/product/product.component';
+import { UserComponent } from './customer/order/user/user.component';
+import { BucketComponent } from './customer/order/bucket/bucket.component';
+import { OrderComponent } from './customer/order/order.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { ProductComponent } from './customer/main/products/product/product.compo
     MainComponent,
     SearchComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    UserComponent,
+    BucketComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { ProductComponent } from './customer/main/products/product/product.compo
     BrowserAnimationsModule,
     MatCardModule, MatListModule, MatIconModule,
     FormsModule, MatFormFieldModule, MatInputModule,
-    MatTooltipModule, MatButtonModule
+    MatTooltipModule, MatButtonModule, MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
