@@ -9,7 +9,8 @@ app-groups{
     width:20vw;
     max-width: 250px;
     max-height:100%;
-    padding:0;
+    padding-top:10px;
+    padding-left: 10px;
 }
 
 app-main{
@@ -17,6 +18,7 @@ app-main{
     min-width: 700px;
     height:100%;
     padding-left: 10px;
+    padding-top: 10px;
     overflow: auto;
 }
 
@@ -24,5 +26,6 @@ app-order{
     width: 25vw;
     min-width: 450px;
     max-height:100vh;
+    padding-top: 10px;
     padding-left: 10px;
 }

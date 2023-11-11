@@ -18,6 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDividerModule } from '@angular/material/divider';
 import { AsyncPipe } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { GroupItemComponent } from './customer/groups/group-item/group-item.component';
 import { MainComponent } from './customer/main/main.component';
@@ -49,13 +52,12 @@ import { OrderButtonComponent } from './customer/order/order-button/order-button
     OrderButtonComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule, MatListModule, MatIconModule,
-    FormsModule, MatFormFieldModule, MatInputModule,
-    MatTooltipModule, MatButtonModule, MatAutocompleteModule,
-    ReactiveFormsModule, AsyncPipe, MatDividerModule 
+    BrowserModule,AppRoutingModule, BrowserAnimationsModule,
+    MatCardModule, MatListModule, MatIconModule,FormsModule, 
+    MatFormFieldModule, MatInputModule, MatTooltipModule, 
+    MatButtonModule, MatAutocompleteModule, ReactiveFormsModule, 
+    AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
+    MatGridListModule, MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,12 @@
-<div class="products" fxLayout="row wrap">
-    <app-product *ngFor="let product of products" pictureUrl={{product.url}} title={{product.title}} price={{product.price}}></app-product>
+<div class="products">
+    <div class="product-list" fxLayout="row wrap">
+        <app-product *ngFor="let product of products" pictureUrl={{product.url}} title={{product.title}} price={{product.price}}></app-product>
+    </div>
+    <mat-paginator 
+        class="product-paginator"
+        [length]="100" 
+        [pageSize]="10" 
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+    </mat-paginator>
 </div>
