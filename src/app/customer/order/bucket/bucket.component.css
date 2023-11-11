@@ -1,11 +1,14 @@
 .bucket{
-    padding: 20px 0 0 0 ;
-    height: 100%;
-    
+    padding: 20px 0 0 0;
+    overflow: auto;
 }
 
 .bucket-items{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+}
+
+mat-list{
+    padding:0;
 }

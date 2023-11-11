@@ -29,6 +29,7 @@ import { BucketComponent } from './customer/order/bucket/bucket.component';
 import { OrderComponent } from './customer/order/order.component';
 import { AddressComponent } from './customer/order/address/address.component';
 import { BucketItemComponent } from './customer/order/bucket/bucket-item/bucket-item.component';
+import { OrderButtonComponent } from './customer/order/order-button/order-button.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BucketItemComponent } from './customer/order/bucket/bucket-item/bucket-
     BucketComponent,
     OrderComponent,
     AddressComponent,
-    BucketItemComponent
+    BucketItemComponent,
+    OrderButtonComponent
   ],
   imports: [
     BrowserModule,

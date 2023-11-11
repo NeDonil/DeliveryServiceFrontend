@@ -34,6 +34,54 @@ export class BucketComponent {
             price: 800,
             count: 3
         },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
+        {
+            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
+            title: "Product eight",
+            price: 800,
+            count: 3
+        },
     ]
 
 }

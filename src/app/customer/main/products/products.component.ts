@@ -88,11 +88,6 @@ export class ProductsComponent {
             url: "https://cm.samokat.ru/processed/m/original/112562_643953137.jpg",
             title: "Product seven",
             price: 700
-        },
-        {
-            url: "https://cm.samokat.ru/processed/m/original/124584_1965506859.jpg",
-            title: "Product eight",
-            price: 800
         }
 
     ]

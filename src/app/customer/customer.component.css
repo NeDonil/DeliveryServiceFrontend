@@ -8,18 +8,21 @@
 app-groups{
     width:20vw;
     max-width: 250px;
-    padding:auto;
+    max-height:100%;
+    padding:0;
 }
 
 app-main{
     width:55vw;
     min-width: 700px;
     height:100%;
+    padding-left: 10px;
     overflow: auto;
 }
 
 app-order{
     width: 25vw;
     min-width: 450px;
-    height:100%;
+    max-height:100vh;
+    padding-left: 10px;
 }
