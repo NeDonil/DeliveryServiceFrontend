@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GroupsComponent } from './customer/groups/groups.component';
-import { CustomerComponent } from './customer/customer.component';
 
 import { MatCardModule} from '@angular/material/card';
 import { MatListModule} from '@angular/material/list';
@@ -22,17 +20,19 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-import { GroupItemComponent } from './customer/groups/group-item/group-item.component';
-import { MainComponent } from './customer/main/main.component';
-import { SearchComponent } from './customer/main/search/search.component';
-import { ProductsComponent } from './customer/main/products/products.component';
-import { ProductComponent } from './customer/main/products/product/product.component';
-import { UserComponent } from './customer/order/user/user.component';
-import { BucketComponent } from './customer/order/bucket/bucket.component';
-import { OrderComponent } from './customer/order/order.component';
-import { AddressComponent } from './customer/order/address/address.component';
-import { BucketItemComponent } from './customer/order/bucket/bucket-item/bucket-item.component';
-import { OrderButtonComponent } from './customer/order/order-button/order-button.component';
+import { CustomerComponent } from './component/customer/customer.component';
+import { GroupsComponent } from './component/customer/groups/groups.component';
+import { GroupItemComponent } from './component/customer/groups/group-item/group-item.component';
+import { MainComponent } from './component/customer/main/main.component';
+import { SearchComponent } from './component/customer/main/search/search.component';
+import { ProductsComponent } from './component/customer/main/products/products.component';
+import { ProductComponent } from './component/customer/main/products/product/product.component';
+import { UserComponent } from './component/customer/order/user/user.component';
+import { BucketComponent } from './component/customer/order/bucket/bucket.component';
+import { OrderComponent } from './component/customer/order/order.component';
+import { AddressComponent } from './component/customer/order/address/address.component';
+import { BucketItemComponent } from './component/customer/order/bucket/bucket-item/bucket-item.component';
+import { OrderButtonComponent } from './component/customer/order/order-button/order-button.component';
 
 @NgModule({
   declarations: [
