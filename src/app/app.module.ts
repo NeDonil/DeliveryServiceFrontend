@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { SessionStorageService } from 'angular-web-storage';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule} from '@angular/material/card';
 import { MatListModule} from '@angular/material/list';
@@ -33,6 +35,7 @@ import { OrderComponent } from './component/customer/order/order.component';
 import { AddressComponent } from './component/customer/order/address/address.component';
 import { BucketItemComponent } from './component/customer/order/bucket/bucket-item/bucket-item.component';
 import { OrderButtonComponent } from './component/customer/order/order-button/order-button.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { OrderButtonComponent } from './component/customer/order/order-button/or
     OrderComponent,
     AddressComponent,
     BucketItemComponent,
-    OrderButtonComponent
+    OrderButtonComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,
@@ -57,9 +61,9 @@ import { OrderButtonComponent } from './component/customer/order/order-button/or
     MatFormFieldModule, MatInputModule, MatTooltipModule, 
     MatButtonModule, MatAutocompleteModule, ReactiveFormsModule, 
     AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
-    MatGridListModule, MatPaginatorModule
+    MatGridListModule, MatPaginatorModule, HttpClientModule
   ],
-  providers: [],
+  providers: [SessionStorageService, provideAnimations()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
