@@ -1,6 +1,6 @@
 <div class="products">
     <div class="product-list" fxLayout="row wrap">
-        <app-product *ngFor="let product of products" pictureUrl={{product.url}} title={{product.title}} price={{product.price}}></app-product>
+        <app-product *ngFor="let card of productCards" pictureUrl={{card.url}} title={{card.title}} price={{card.price}}></app-product>
     </div>
     <mat-paginator 
         class="product-paginator"
