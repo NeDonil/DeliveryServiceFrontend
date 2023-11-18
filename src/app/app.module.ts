@@ -24,35 +24,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { CustomerComponent } from './component/customer/customer.component';
 import { GroupsComponent } from './component/customer/groups/groups.component';
-import { GroupItemComponent } from './component/customer/groups/group-item/group-item.component';
 import { MainComponent } from './component/customer/main/main.component';
-import { SearchComponent } from './component/customer/main/search/search.component';
-import { ProductsComponent } from './component/customer/main/products/products.component';
-import { ProductComponent } from './component/customer/main/products/product/product.component';
-import { UserComponent } from './component/customer/order/user/user.component';
-import { BucketComponent } from './component/customer/order/bucket/bucket.component';
+import { ProductCartComponent } from './component/customer/main/product-cart/product-cart.component';
 import { OrderComponent } from './component/customer/order/order.component';
-import { AddressComponent } from './component/customer/order/address/address.component';
-import { BucketItemComponent } from './component/customer/order/bucket/bucket-item/bucket-item.component';
-import { OrderButtonComponent } from './component/customer/order/order-button/order-button.component';
+import { OrderItemComponent } from './component/customer/order/order-item/order-item.component';
 import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GroupsComponent,
-    CustomerComponent,
-    GroupItemComponent,
-    MainComponent,
-    SearchComponent,
-    ProductsComponent,
-    ProductComponent,
-    UserComponent,
-    BucketComponent,
-    OrderComponent,
-    AddressComponent,
-    BucketItemComponent,
-    OrderButtonComponent,
+    AppComponent, CustomerComponent, GroupsComponent, MainComponent,
+    MainComponent, ProductCartComponent, OrderComponent, OrderItemComponent,
     LoginComponent
   ],
   imports: [

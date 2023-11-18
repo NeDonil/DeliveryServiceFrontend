@@ -1,9 +1,12 @@
-
-<div class="app-groups">
-    <mat-card>
-        <mat-list role="list">
-                <app-group-item *ngFor="let group of groups" text={{group.name}} url={{group.url}}></app-group-item>
-        </mat-list>
-    </mat-card>
+<div>
+    <div class="flex p-3" *ngFor="let group of groups">
+        <button class="flex justify-between">
+            <img class="max-h-11 rounded-md" src={{group.url}}>
+            <div class="align-middle">
+                <p class="text-xl pretty-font font-semibold text-neutral-700 md:text-sm pt-2">{{group.name}}</p>
+            </div>
+        </button>
+    </div>
 </div>
+
 
