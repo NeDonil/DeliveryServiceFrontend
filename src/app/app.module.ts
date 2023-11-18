@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +30,11 @@ import { OrderComponent } from './component/customer/order/order.component';
 import { OrderItemComponent } from './component/customer/order/order-item/order-item.component';
 import { LoginComponent } from './component/login/login.component';
 
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+
+registerLocaleData(localeRu);
+
 @NgModule({
   declarations: [
     AppComponent, CustomerComponent, GroupsComponent, MainComponent,
@@ -44,7 +49,13 @@ import { LoginComponent } from './component/login/login.component';
     AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
     MatGridListModule, MatPaginatorModule, HttpClientModule
   ],
-  providers: [SessionStorageService, provideAnimations()],
+  providers: [
+    SessionStorageService, 
+    provideAnimations(),
+    {
+        provide: LOCALE_ID, useValue: 'ru'
+    }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
