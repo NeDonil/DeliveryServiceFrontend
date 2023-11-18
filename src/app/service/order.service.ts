@@ -80,6 +80,11 @@ export class OrderService {
         }
     }
 
+    makeOrder(id: number){
+        this.http.get(this.orderUrl + "/" + id + "/action/MAKE").subscribe((e) => console.log("Order placed"));
+        this.getCurrentOrder();
+    }
+
     getCurrentOrder(): Observable<Order>{
         this.http.get<Order>(this.orderUrl + "/current").subscribe( (value) => this.currentOrder.next(value));
         return this.currentOrder;

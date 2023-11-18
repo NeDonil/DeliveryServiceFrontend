@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { Order } from 'src/app/model/Order';
+import { OrderItem } from 'src/app/model/OrderItem';
 import { OrderService } from 'src/app/service/order.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { OrderService } from 'src/app/service/order.service';
 export class OrderComponent implements OnInit, OnDestroy{
 
     currentOrder : Order | undefined;
+    totalPrice : number | undefined;
     currentOrderSubscription : Subscription | undefined
 
     constructor(private orderService : OrderService){}
@@ -22,9 +24,26 @@ export class OrderComponent implements OnInit, OnDestroy{
         this.currentOrderSubscription = this.orderService
             .getCurrentOrder()
             .subscribe((order) => {
-                debugger;
                 this.currentOrder = order;
+                this.totalPrice = this.calcTotalPrice();
             })
+    }
+
+    calcTotalPrice(): number {
+        let sum = 0;
+        if(this.currentOrder && this.currentOrder.items){
+            this.currentOrder.items.forEach( (e) => {
+                if(e.product && e.count && e.product.price) sum += e.product.price * e.count;
+            });
+        }
+
+        return sum;
+    }
+
+    makeOrder() : void {
+        if(this.currentOrder && this.currentOrder.id){
+            this.orderService.makeOrder(this.currentOrder.id);
+        }
     }
 
     ngOnDestroy(): void {
