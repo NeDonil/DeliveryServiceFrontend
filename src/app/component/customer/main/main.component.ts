@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/model/Product';
+import { OrderService } from 'src/app/service/order.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { ProductService } from 'src/app/service/product.service';
   templateUrl: './main.component.html'
 })
 export class MainComponent implements OnInit, OnDestroy{
-    constructor(private productService: ProductService){}
+    constructor(private productService: ProductService,
+                private orderService: OrderService){}
 
     products : Array<Product> | undefined;
     productSubscription : Subscription | undefined;
@@ -23,6 +25,10 @@ export class MainComponent implements OnInit, OnDestroy{
             .subscribe((_products) => {
                 this.products = _products;
             })
+    }
+
+    onAddToOrder(product: Product){
+        this.orderService.addToOrder(product);
     }
 
     ngOnDestroy(): void {
