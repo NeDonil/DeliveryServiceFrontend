@@ -2,12 +2,7 @@
     <input type="text" class="bg-gray-200 rounded-full w-full min-h-4 mt-4 p-2 text-xl text-slate-600 px-5 ">
 
     <div class="grid xl:grid-cols-5 md:grid-cols-3 gap-5 my-5">
-        <app-product-cart></app-product-cart>
-        <app-product-cart></app-product-cart>
-        <app-product-cart></app-product-cart>
-        <app-product-cart></app-product-cart>
-        <app-product-cart></app-product-cart>
-        <app-product-cart></app-product-cart>
+        <app-product-cart *ngFor="let p of products" [product]='p'></app-product-cart>
     </div>
 </div>
 
