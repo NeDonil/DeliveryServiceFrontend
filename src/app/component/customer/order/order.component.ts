@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit, OnDestroy{
         this.currentOrderSubscription = this.orderService
             .getCurrentOrder()
             .subscribe((order) => {
+                debugger;
                 this.currentOrder = order;
             })
     }
