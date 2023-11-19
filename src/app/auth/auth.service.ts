@@ -44,6 +44,12 @@ export class AuthService {
         }).length != 0;
     }
 
+    isAssembler(): boolean {
+        return this.LoggedUser.authorities.filter((auth: Authority) => {
+            return auth.authority == ROLE.ASSEMBLER;
+        }).length != 0;
+    }
+
     static checkAuthUser(auth: CredentialResponse, role: string): boolean {
         let access = false;
         if (auth != null && auth.authorities !== null) {
@@ -80,6 +86,8 @@ export class AuthService {
             this.loggedIn.next(true);
             if(this.isCustomer()){
                 this.router.navigate(['customer']);
+            } else if(this.isAssembler()){
+                this.router.navigate(['assembler']);
             } 
             return true;
         }

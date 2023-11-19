@@ -3,8 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from './component/customer/customer.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { AssemblerComponent } from './component/assembler/assembler.component';
 
 const routes: Routes = [
+    {
+        path: "",
+        redirectTo: "login",
+        pathMatch : "full"
+    },
     {
         path: "login",
         component : LoginComponent
@@ -12,6 +18,11 @@ const routes: Routes = [
     {
         path: "customer",
         component : CustomerComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "assembler",
+        component : AssemblerComponent,
         canActivate: [AuthGuard]
     },
 ];
