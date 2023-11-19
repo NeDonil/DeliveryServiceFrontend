@@ -1,10 +1,8 @@
 <div>
     <div class="flex p-3" *ngFor="let group of groups">
         <button class="flex justify-between">
-            <img class="max-h-11 rounded-md" src={{group.url}}>
-            <div class="align-middle">
-                <p class="text-xl pretty-font font-semibold text-neutral-700 md:text-sm pt-2">{{group.name}}</p>
-            </div>
+            <img class="max-h-10 rounded-md mr-3" src={{group.url}}>
+            <p class="text-xl pretty-font font-semibold text-neutral-700 md:text-sm pt-2">{{group.name}}</p>
         </button>
     </div>
 </div>

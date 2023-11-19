@@ -82,7 +82,7 @@ export class OrderService {
 
     makeOrder(id: number){
         this.http.get(this.orderUrl + "/" + id + "/action/MAKE").subscribe((e) => console.log("Order placed"));
-        this.getCurrentOrder();
+        this.getCurrentOrder().subscribe();
     }
 
     getCurrentOrder(): Observable<Order>{

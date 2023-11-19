@@ -19,6 +19,10 @@ module.exports = {
                 },
                 ".pretty-font": {
                     "font-family": "Inter,Avenir,Helvetica,Arial,sans-serif"
+                },
+
+                ".bg-pretty-gray": {
+                    "backgroud-color": "#f2f2f2"
                 }
             };
 

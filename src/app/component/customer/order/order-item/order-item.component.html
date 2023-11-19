@@ -1,29 +1,32 @@
-<div class="max-w-md mb-5">
-    <div class="flex w-max justify-between">
-        <div class="w-16">
-            <img src={{orderItem?.product?.photo}} class="rounded-lg"/>
-        </div>
-        <div class="flex flex-col justify-between px-2">
-
-            <div class="flex justify-between ">
-                <p class="pretty-font font-semibold text-lg text-neutral-700">{{orderItem?.product?.title}}</p>
+<div class="max-full mb-5">
+    <div class="flex w-full justify-between">
+        <div class="flex">
+            <div class="w-16">
+                <img src={{orderItem?.product?.photo}} class="rounded-lg"/>
             </div>
 
-            <div class="flex">
-                <button class="bg-gray-200 w-5 rounded-l-full" (click)="onMinusPressed()">
-                    <svg fill="#000000" width="20px" height="20px" viewBox="0 0 0.6 0.6" id="minus" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="M0.475 0.325H0.125a0.025 0.025 0 0 1 0 -0.05h0.35a0.025 0.025 0 0 1 0 0.05Z" style="fill: rgb(0, 0, 0);"/></svg>
-                </button>
-                <div class="px-1 bg-gray-200 align-middle font-bold pretty-font">{{orderItem?.count}}</div>
-                <button class="bg-gray-200 w-5 rounded-r-full" (click)="onPlusPressed()">
-                    <svg fill="#000000" width="20px" height="20px" viewBox="0 0 0.6 0.6" id="plus" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="M0.3 0.5a0.025 0.025 0 0 1 -0.025 -0.025v-0.15H0.125a0.025 0.025 0 0 1 0 -0.05h0.15V0.125a0.025 0.025 0 0 1 0.05 0v0.15h0.15a0.025 0.025 0 0 1 0 0.05h-0.15v0.15a0.025 0.025 0 0 1 -0.025 0.025Z" style="fill: rgb(0, 0, 0);"/></svg>
-                </button>
+            <div class="flex flex-col justify-between px-2">
+                <div class="flex justify-between ">
+                    <p class="pretty-font font-semibold text-lg text-neutral-700">{{orderItem?.product?.title}}</p>
+                </div>
+
+                <div class="flex">
+                    <button class="bg-gray-200 w-5 rounded-l-full" (click)="onMinusPressed()">
+                        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 0.6 0.6" id="minus" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="M0.475 0.325H0.125a0.025 0.025 0 0 1 0 -0.05h0.35a0.025 0.025 0 0 1 0 0.05Z" style="fill: rgb(0, 0, 0);"/></svg>
+                    </button>
+                    <div class="px-1 bg-gray-200 align-middle font-bold pretty-font">{{orderItem?.count}}</div>
+                    <button class="bg-gray-200 w-5 rounded-r-full" (click)="onPlusPressed()">
+                        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 0.6 0.6" id="plus" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="M0.3 0.5a0.025 0.025 0 0 1 -0.025 -0.025v-0.15H0.125a0.025 0.025 0 0 1 0 -0.05h0.15V0.125a0.025 0.025 0 0 1 0.05 0v0.15h0.15a0.025 0.025 0 0 1 0 0.05h-0.15v0.15a0.025 0.025 0 0 1 -0.025 0.025Z" style="fill: rgb(0, 0, 0);"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
+        
         <div class="flex flex-col justify-between">
             <button class="w-6 ml-20" (click)="onRemovePressed()">
                 <svg fill="#000000" width="20px" height="20px" viewBox="0 0 0.6 0.6" id="cross" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="m0.335 0.3 0.158 -0.157a0.025 0.025 0 1 0 -0.035 -0.035L0.3 0.265l-0.157 -0.158a0.025 0.025 0 0 0 -0.035 0.035l0.158 0.157 -0.158 0.157a0.025 0.025 0 0 0 0 0.035 0.025 0.025 0 0 0 0.035 0l0.157 -0.158 0.157 0.158a0.025 0.025 0 0 0 0.035 0 0.025 0.025 0 0 0 0 -0.035Z" style="fill: rgb(0, 0, 0);"/></svg>
             </button>
-            <span class="pretty-font font-semibold text-lg text-neutral-700">{{orderItem?.product?.price | currency :'RUB':'symbol':'2.0-0'}}</span>
+            <span class="pretty-font text-right font-semibold text-lg text-neutral-700">{{totalPrice | currency :'RUB':'symbol':'2.0-0'}}</span>
         </div>
     </div>
 </div>
