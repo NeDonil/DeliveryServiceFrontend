@@ -1,6 +1,6 @@
 <div *ngIf="currentAddress; then addressExist else addressNotExist"></div>
 <ng-template #addressNotExist>
-    <button class="mx-auto flex text-3xl py-5 pretty-font text-neutral-700 font-semibold" [matMenuTriggerFor]="addressesMenu">Выберите адресс</button>
+    <button class="mx-auto flex text-3xl py-5 pretty-font text-neutral-700 font-semibold" [matMenuTriggerFor]="addressesMenu">Выберите адрес</button>
 </ng-template>
 <ng-template #addressExist>
     <button class="mx-auto flex text-3xl py-5 pretty-font text-neutral-700 font-semibold" [matMenuTriggerFor]="addressesMenu">{{currentAddress?.value}}</button>
