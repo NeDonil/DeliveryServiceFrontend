@@ -5,6 +5,7 @@ import { Group } from '../model/Group';
 import { Product } from '../model/Product';
 import { Order } from '../model/Order';
 import { OrderItem } from '../model/OrderItem';
+import { Address } from '../model/Address';
 
 @Injectable({
     providedIn: 'root'
@@ -78,6 +79,13 @@ export class OrderService {
             });
             this.http.put(this.orderUrl + "/current", this.currentOrder.value).subscribe((data) => console.log(data));
         }
+    }
+
+    setAddress(address: Address) : void {
+        let currentOrderValue = this.currentOrder.value;
+        currentOrderValue.address = address;
+        this.currentOrder.next(currentOrderValue);
+        this.http.put(this.orderUrl + "/current", this.currentOrder.value).subscribe((data) => console.log(data));
     }
 
     makeOrder(id: number){

@@ -21,6 +21,7 @@ import { AsyncPipe } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { CustomerComponent } from './component/customer/customer.component';
 import { GroupsComponent } from './component/customer/groups/groups.component';
@@ -33,6 +34,8 @@ import { LoginComponent } from './component/login/login.component';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { GroupItemComponent } from './component/customer/groups/group-item/group-item.component';
+import { AddressComponent } from './component/customer/order/address/address.component';
+import { AddressItemComponent } from './component/customer/order/address/address-item/address-item.component';
 
 registerLocaleData(localeRu);
 
@@ -41,7 +44,9 @@ registerLocaleData(localeRu);
     AppComponent, CustomerComponent, GroupsComponent, MainComponent,
     MainComponent, ProductCartComponent, OrderComponent, OrderItemComponent,
     LoginComponent,
-    GroupItemComponent
+    GroupItemComponent,
+    AddressComponent,
+    AddressItemComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,
@@ -49,7 +54,7 @@ registerLocaleData(localeRu);
     MatFormFieldModule, MatInputModule, MatTooltipModule, 
     MatButtonModule, MatAutocompleteModule, ReactiveFormsModule, 
     AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
-    MatGridListModule, MatPaginatorModule, HttpClientModule
+    MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule
   ],
   providers: [
     SessionStorageService, 

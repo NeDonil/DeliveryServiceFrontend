@@ -1,5 +1,5 @@
 <div class="max-full flex-col">
-    <button class="mx-auto flex text-3xl py-5 pretty-font text-neutral-700 font-semibold">Very very large address</button>
+    <app-address></app-address>
     <div class="mx-4 divide-y divide-solid">
         <app-order-item class="max-w-sm" *ngFor="let item of currentOrder?.items" [orderItem]="item"></app-order-item>
     </div>
