@@ -11,9 +11,12 @@ export class GroupsComponent implements OnInit{
     constructor(private productService: ProductService){}
 
     groups : Group[] = [];
-    currentGroupId : number = -1;
 
     ngOnInit(){
         this.productService.getAllGroups().subscribe(data => this.groups = data);
+    }
+
+    onGroupSelected(group: Group){
+        this.productService.getProductsInGroup(group.id).subscribe(data => console.log(data));
     }
 }

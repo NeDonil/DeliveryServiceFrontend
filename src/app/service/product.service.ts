@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Group } from '../model/Group';
 import { Product } from '../model/Product';
 
@@ -11,6 +11,8 @@ export class ProductService {
 
     private productUrl = "api/product";
 
+    currentGroup = new BehaviorSubject<Product[]>([]);
+
     constructor(private http: HttpClient) { }
 
     getAllGroups(): Observable<Group[]>{
@@ -19,7 +21,7 @@ export class ProductService {
 
 
     getProductsInGroup(groupId: number): Observable<Product[]>{
-        return this.http.get<Product[]>(this.productUrl + "/group/" + groupId);
+        this.http.get<Product[]>(this.productUrl + "/group/" + groupId).subscribe(data => this.currentGroup.next(data));
+        return this.currentGroup;
     }
-  
 }

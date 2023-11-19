@@ -32,6 +32,7 @@ import { LoginComponent } from './component/login/login.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { GroupItemComponent } from './component/customer/groups/group-item/group-item.component';
 
 registerLocaleData(localeRu);
 
@@ -39,7 +40,8 @@ registerLocaleData(localeRu);
   declarations: [
     AppComponent, CustomerComponent, GroupsComponent, MainComponent,
     MainComponent, ProductCartComponent, OrderComponent, OrderItemComponent,
-    LoginComponent
+    LoginComponent,
+    GroupItemComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,
