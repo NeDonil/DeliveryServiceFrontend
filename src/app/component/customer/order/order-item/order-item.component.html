@@ -2,12 +2,12 @@
     <div class="flex w-full justify-between">
         <div class="flex">
             <div class="w-20">
-                <img src={{orderItem?.product?.photo}} class="rounded-lg"/>
+                <img src={{orderItem?.product?.photo}} class="rounded-lg min-w-full"/>
             </div>
 
             <div class="flex flex-col justify-between px-2">
-                <div class="flex justify-between ">
-                    <p class="pretty-font font-semibold text-lg text-neutral-700">{{orderItem?.product?.title}}</p>
+                <div class="flex justify-between">
+                    <p class="pretty-font font-semibold text-sm text-neutral-700 line-clamp-2">{{orderItem?.product?.title}}</p>
                 </div>
 
                 <div class="flex h-8">
@@ -22,7 +22,7 @@
             </div>
         </div>
         
-        <div class="flex flex-col justify-between">
+        <div class="flex flex-col justify-between max-w-min">
             <button class="w-6 ml-20" (click)="onRemovePressed()">
                 <svg fill="#000000" width="20px" height="20px" viewBox="0 0 0.6 0.6" id="cross" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="m0.335 0.3 0.158 -0.157a0.025 0.025 0 1 0 -0.035 -0.035L0.3 0.265l-0.157 -0.158a0.025 0.025 0 0 0 -0.035 0.035l0.158 0.157 -0.158 0.157a0.025 0.025 0 0 0 0 0.035 0.025 0.025 0 0 0 0.035 0l0.157 -0.158 0.157 0.158a0.025 0.025 0 0 0 0.035 0 0.025 0.025 0 0 0 0 -0.035Z" style="fill: rgb(0, 0, 0);"/></svg>
             </button>

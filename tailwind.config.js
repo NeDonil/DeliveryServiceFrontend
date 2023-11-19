@@ -7,6 +7,8 @@ module.exports = {
         extend: {},
     },
     plugins: [
+        require('@tailwindcss/line-clamp'),
+        
         function({addUtilities}){
             const newUtilities = {
                 ".no-scrollbar::-webkit-scrollbar" :{

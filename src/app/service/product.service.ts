@@ -17,9 +17,6 @@ export class ProductService {
         return this.http.get<Group[]>(this.productUrl + "/group");
     }
 
-    getAllGroupsP(){
-        return this.http.get<Group[]>(this.productUrl + "/group").toPromise();
-    }
 
     getProductsInGroup(groupId: number): Observable<Product[]>{
         return this.http.get<Product[]>(this.productUrl + "/group/" + groupId);
