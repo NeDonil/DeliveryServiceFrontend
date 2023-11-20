@@ -86,12 +86,18 @@ export class OrderService {
         let currentOrderValue = this.currentOrder.value;
         currentOrderValue.address = address;
         this.currentOrder.next(currentOrderValue);
-        this.http.put(this.orderUrl + "/current", this.currentOrder.value).subscribe((data) => console.log(data));
+        this.http.put(this.orderUrl + "/current", this.currentOrder.value)
+            .subscribe((data) => console.log(data));
     }
 
     makeOrder(id: number){
-        this.http.get(this.orderUrl + "/" + id + "/action/MAKE").subscribe((e) => console.log("Order placed"));
-        this.getCurrentOrder().subscribe();
+        this.http.get(this.orderUrl + "/" + id + "/action/MAKE")
+            .subscribe((e) => console.log("Order placed" + id));
+
+        setTimeout(() => console.log("Pause 1000ms"), 1000);
+
+        this.getCurrentOrder()
+            .subscribe((data) => console.log("Now current order is " + data.id));
     }
 
     getCurrentOrder(): Observable<Order>{
