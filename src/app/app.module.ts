@@ -36,6 +36,12 @@ import localeRu from '@angular/common/locales/ru';
 import { GroupItemComponent } from './component/customer/groups/group-item/group-item.component';
 import { AddressComponent } from './component/customer/order/address/address.component';
 import { AddressItemComponent } from './component/customer/order/address/address-item/address-item.component';
+import { AssemblerComponent } from './component/assembler/assembler.component';
+import { WaitingComponent } from './component/assembler/screen/waiting/waiting.component';
+import { AssemblerOrderComponent } from './component/assembler/screen/waiting/order/assembler-order.component';
+import { LogoutComponent } from './component/logout/logout.component';
+import { AssemblyComponent } from './component/assembler/screen/assembly/assembly.component';
+import { AssemblyItemComponent } from './component/assembler/screen/assembly/assembly-item/assembly-item.component';
 
 registerLocaleData(localeRu);
 
@@ -46,7 +52,13 @@ registerLocaleData(localeRu);
     LoginComponent,
     GroupItemComponent,
     AddressComponent,
-    AddressItemComponent
+    AddressItemComponent,
+    AssemblerComponent,
+    WaitingComponent,
+    AssemblerOrderComponent,
+    LogoutComponent,
+    AssemblyComponent,
+    AssemblyItemComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,

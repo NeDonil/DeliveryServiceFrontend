@@ -1,0 +1,7 @@
+<div class="py-10 w-full h-full px-5">
+    <p class="pretty-font font-semibold text-xl md:text-7xl text-gray-700">Ожидают: {{orders?.length}}</p>
+
+    <div class="grid gap-5">
+        <app-assembler-order *ngFor="let order of orders" [order]="order" (takeOrder)="onTakeOrder($event)"></app-assembler-order>
+    </div>
+</div>

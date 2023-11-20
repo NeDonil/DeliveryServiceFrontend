@@ -1,0 +1,13 @@
+<button class="bg-gray-200 flex p-2 rounded-xl hover:bg-gray-300" (click)="onItemClick()">
+    <div class="max-w-xs">
+        <img 
+        class="rounded-xl w-full" 
+        src={{item.product?.photo}}/>
+    </div>
+    <div class="px-2 max-w-max">
+        <p class="pretty-font text-3xl font-semibold text-gray-700 text-start">Мороженое Самокат в вафельном стаканчике, пломбир, без сахарозы, с ароматом ванили 12%, с ароматом ванили 12%</p>
+    </div>
+    <div class="h-full w-fit">
+        <p class="pretty-font text-3xl font-bold text-gray-700 align-bottom">{{currentCount}}/{{item.count}}</p>
+    </div>
+</button>
