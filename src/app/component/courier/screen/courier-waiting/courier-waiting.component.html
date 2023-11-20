@@ -1,0 +1,9 @@
+<div class="py-10 w-full h-full px-5">
+    <p class="pretty-font font-semibold text-xl md:text-3xl text-gray-200 text-center">Доставка</p>
+    <p class="pretty-font font-semibold text-xl md:text-7xl text-gray-200">Ожидают: {{orders?.length}}</p>
+
+    <div class="grid gap-5">
+        <app-courier-order *ngFor="let order of orders" [order]="order" (takeOrder)="onTakeOrder($event)"></app-courier-order>
+    </div>
+
+</div>

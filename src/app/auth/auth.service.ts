@@ -50,6 +50,12 @@ export class AuthService {
         }).length != 0;
     }
 
+    isCourier(): boolean {
+        return this.LoggedUser.authorities.filter((auth: Authority) => {
+            return auth.authority == ROLE.COURIER;
+        }).length != 0;
+    }
+
     static checkAuthUser(auth: CredentialResponse, role: string): boolean {
         let access = false;
         if (auth != null && auth.authorities !== null) {
@@ -71,7 +77,6 @@ export class AuthService {
         "X-Requested-With": "XMLHttpRequest"
         } : {});
 
-        debugger;
         this.authentication(headers).subscribe((data: CredentialResponse) => {
             if (data != null) {
                 this.responseProcessing(data, failureHandler);
@@ -89,6 +94,8 @@ export class AuthService {
                 this.router.navigate(['customer']);
             } else if(this.isAssembler()){
                 this.router.navigate(['assembler']);
+            } else if(this.isCourier()){
+                this.router.navigate(['courier']);
             } 
             return true;
         }
@@ -134,7 +141,7 @@ export class AuthService {
 
     private handleLoginError<T>(operation = 'operation', result?: T) {
         console.log('handleLoginError');
-
+        debugger;
         return (error: any): Observable<T> => {
             if(error.status === 401) {
                 this.loggedIn.next(false);

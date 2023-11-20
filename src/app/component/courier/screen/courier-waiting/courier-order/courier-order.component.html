@@ -1,0 +1,14 @@
+<div class="rounded-xl bg-gray-500 flex h-full">
+    <button class="bg-gray-500 rounded-xl p-4 w-full" (click)="selected = !selected">
+        <p class="pretty-font font-medium text-gray-100 text-2xl text-left">{{order.address?.value}}</p>
+        <div class="flex mx-auto justify-between">
+            <p class="pretty-font text-gray-300 text-xl font-semibold text-left">{{itemsCount}} товара</p>
+            <p class="pretty-font text-gray-300 text-xl font-semibold text-left">{{this.order.beginDate | date:'hh:mm'}}</p>
+        </div>
+    </button>
+    <div *ngIf="selected" class="flex my-auto h-full p-3">
+        <button class="px-8 bg-gray-300 min-h-full rounded-xl" (click)="onTakePressed()">
+            <p class="pretty-font text-xl font-semibold">Взять</p>
+        </button>
+    </div>
+</div>
