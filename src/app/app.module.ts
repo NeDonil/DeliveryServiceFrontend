@@ -40,6 +40,8 @@ import { AssemblerComponent } from './component/assembler/assembler.component';
 import { WaitingComponent } from './component/assembler/screen/waiting/waiting.component';
 import { AssemblerOrderComponent } from './component/assembler/screen/waiting/order/assembler-order.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { AssemblyComponent } from './component/assembler/screen/assembly/assembly.component';
+import { AssemblyItemComponent } from './component/assembler/screen/assembly/assembly-item/assembly-item.component';
 
 registerLocaleData(localeRu);
 
@@ -54,7 +56,9 @@ registerLocaleData(localeRu);
     AssemblerComponent,
     WaitingComponent,
     AssemblerOrderComponent,
-    LogoutComponent
+    LogoutComponent,
+    AssemblyComponent,
+    AssemblyItemComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,

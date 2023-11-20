@@ -1,0 +1,29 @@
+<div class="py-10 w-full h-full px-5">
+    <p class="pretty-font mx-auto text-center font-semibold text-xl md:text-7xl text-gray-700">Соберите заказ</p>
+
+    <div class="grid gap-2 overflow-y-auto no-scrollbar">
+        <app-assembly-item *ngFor="let item of order?.items" [item]="item" (itemClick)="addOneProduct()"></app-assembly-item>
+    </div>
+
+    
+    <div *ngIf="totalProductAssembled == totalProductCount; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <button
+        (click)="assembledClicked()"
+        class="w-full bg-pink-500 rounded-xl p-5 my-5 hover:bg-pink-400"
+        >
+            <p class="text-5xl pretty-font font-semibold text-gray-800">Заказ собран</p>
+        </button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <button
+        #disableButton
+        class="w-full bg-pink-300 rounded-xl p-5 my-5"
+        >
+            <p class="text-5xl pretty-font font-semibold text-gray-800">Соберите продукты</p>
+        </button>
+    </ng-template>
+
+    
+
+</div>
