@@ -42,6 +42,10 @@ import { AssemblerOrderComponent } from './component/assembler/screen/waiting/or
 import { LogoutComponent } from './component/logout/logout.component';
 import { AssemblyComponent } from './component/assembler/screen/assembly/assembly.component';
 import { AssemblyItemComponent } from './component/assembler/screen/assembly/assembly-item/assembly-item.component';
+import { CourierComponent } from './component/courier/courier.component';
+import { CourierWaitingComponent } from './component/courier/screen/courier-waiting/courier-waiting.component';
+import { CourierOrderComponent } from './component/courier/screen/courier-waiting/courier-order/courier-order.component';
+import { DeliveryComponent } from './component/courier/screen/delivery/delivery.component';
 
 registerLocaleData(localeRu);
 
@@ -58,7 +62,11 @@ registerLocaleData(localeRu);
     AssemblerOrderComponent,
     LogoutComponent,
     AssemblyComponent,
-    AssemblyItemComponent
+    AssemblyItemComponent,
+    CourierComponent,
+    CourierWaitingComponent,
+    CourierOrderComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,

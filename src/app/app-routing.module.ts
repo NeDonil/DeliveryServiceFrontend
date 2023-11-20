@@ -5,6 +5,7 @@ import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AssemblerComponent } from './component/assembler/assembler.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { CourierComponent } from './component/courier/courier.component';
 
 const routes: Routes = [
     {
@@ -28,6 +29,11 @@ const routes: Routes = [
     {
         path: "assembler",
         component : AssemblerComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "courier",
+        component : CourierComponent,
         canActivate: [AuthGuard]
     },
 ];
