@@ -50,6 +50,12 @@ export class AuthService {
         }).length != 0;
     }
 
+    isCourier(): boolean {
+        return this.LoggedUser.authorities.filter((auth: Authority) => {
+            return auth.authority == ROLE.COURIER;
+        }).length != 0;
+    }
+
     static checkAuthUser(auth: CredentialResponse, role: string): boolean {
         let access = false;
         if (auth != null && auth.authorities !== null) {
@@ -89,6 +95,8 @@ export class AuthService {
                 this.router.navigate(['customer']);
             } else if(this.isAssembler()){
                 this.router.navigate(['assembler']);
+            } else if(this.isCourier()){
+                this.router.navigate(['courier']);
             } 
             return true;
         }
