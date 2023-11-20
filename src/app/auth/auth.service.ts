@@ -77,7 +77,6 @@ export class AuthService {
         "X-Requested-With": "XMLHttpRequest"
         } : {});
 
-        debugger;
         this.authentication(headers).subscribe((data: CredentialResponse) => {
             if (data != null) {
                 this.responseProcessing(data, failureHandler);
@@ -142,7 +141,7 @@ export class AuthService {
 
     private handleLoginError<T>(operation = 'operation', result?: T) {
         console.log('handleLoginError');
-
+        debugger;
         return (error: any): Observable<T> => {
             if(error.status === 401) {
                 this.loggedIn.next(false);
