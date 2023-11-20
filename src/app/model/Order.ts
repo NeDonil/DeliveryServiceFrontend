@@ -5,5 +5,6 @@ export class Order{
     id : number | undefined;
     comment: string | undefined;
     address: Address | undefined;
+    beginDate !: Date;
     items: Array<OrderItem> | undefined;
 }

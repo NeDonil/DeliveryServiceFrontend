@@ -4,12 +4,17 @@ import { CustomerComponent } from './component/customer/customer.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AssemblerComponent } from './component/assembler/assembler.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 const routes: Routes = [
     {
         path: "",
         redirectTo: "login",
         pathMatch : "full"
+    },
+    {
+        path: "logout",
+        component : LogoutComponent
     },
     {
         path: "login",

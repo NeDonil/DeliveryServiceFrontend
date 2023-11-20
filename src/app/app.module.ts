@@ -37,6 +37,9 @@ import { GroupItemComponent } from './component/customer/groups/group-item/group
 import { AddressComponent } from './component/customer/order/address/address.component';
 import { AddressItemComponent } from './component/customer/order/address/address-item/address-item.component';
 import { AssemblerComponent } from './component/assembler/assembler.component';
+import { WaitingComponent } from './component/assembler/screen/waiting/waiting.component';
+import { AssemblerOrderComponent } from './component/assembler/screen/waiting/order/assembler-order.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 registerLocaleData(localeRu);
 
@@ -48,7 +51,10 @@ registerLocaleData(localeRu);
     GroupItemComponent,
     AddressComponent,
     AddressItemComponent,
-    AssemblerComponent
+    AssemblerComponent,
+    WaitingComponent,
+    AssemblerOrderComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,

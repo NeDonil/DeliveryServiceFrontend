@@ -71,6 +71,7 @@ export class AuthService {
         "X-Requested-With": "XMLHttpRequest"
         } : {});
 
+        debugger;
         this.authentication(headers).subscribe((data: CredentialResponse) => {
             if (data != null) {
                 this.responseProcessing(data, failureHandler);
@@ -105,6 +106,7 @@ export class AuthService {
     logout() {
         this.clearLoginData();
         this.http.post('api/logout', {}).subscribe(response => {
+            console.log(this.LoggedUser);
             this.router.navigateByUrl('/login');
         });
     }

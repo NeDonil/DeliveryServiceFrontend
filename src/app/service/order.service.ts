@@ -14,7 +14,7 @@ export class OrderService {
 
     private orderUrl = "api/customer/order";
 
-    public currentOrder = new BehaviorSubject<Order>({id: 0, address : undefined, comment: " ",items: new Array<OrderItem>()});
+    public currentOrder = new BehaviorSubject<Order>({id: 0, address : undefined, comment: " ", beginDate: new Date(), items: new Array<OrderItem>()});
 
     constructor(private http: HttpClient) { }
 
@@ -75,6 +75,7 @@ export class OrderService {
                 id: currentValue.id, 
                 address: currentValue.address, 
                 comment: currentValue.comment, 
+                beginDate: currentValue.beginDate,
                 items: items
             });
             this.http.put(this.orderUrl + "/current", this.currentOrder.value).subscribe((data) => console.log(data));

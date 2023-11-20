@@ -2,14 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-assembler',
-  template: `
-    <p>
-      assembler works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './assembler.component.html' 
 })
 export class AssemblerComponent {
-
+    
 }
