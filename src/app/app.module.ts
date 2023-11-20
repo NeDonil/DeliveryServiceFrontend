@@ -45,6 +45,7 @@ import { AssemblyItemComponent } from './component/assembler/screen/assembly/ass
 import { CourierComponent } from './component/courier/courier.component';
 import { CourierWaitingComponent } from './component/courier/screen/courier-waiting/courier-waiting.component';
 import { CourierOrderComponent } from './component/courier/screen/courier-waiting/courier-order/courier-order.component';
+import { DeliveryComponent } from './component/courier/screen/delivery/delivery.component';
 
 registerLocaleData(localeRu);
 
@@ -64,7 +65,8 @@ registerLocaleData(localeRu);
     AssemblyItemComponent,
     CourierComponent,
     CourierWaitingComponent,
-    CourierOrderComponent
+    CourierOrderComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,

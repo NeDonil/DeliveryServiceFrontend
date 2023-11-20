@@ -1,6 +1,6 @@
 <div class="h-full">
     <div class="flex mx-auto overflow-y-scroll no-scrollbar justify-between max-w-screen-md h-full bg-gray-700 rounded-2xl" [ngSwitch]="currentState">
-        <app-courier-waiting *ngSwitchCase="1" class="w-full h-full"></app-courier-waiting>
-        
+        <app-courier-waiting *ngSwitchCase="3" class="w-full h-full"></app-courier-waiting>
+        <app-delivery *ngSwitchCase="4" class="w-full h-full" [order]="currentOrder"></app-delivery>
     </div>
 </div>

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CourierService {
 
-    private currentState = new BehaviorSubject<number>(1);
+    private currentState = new BehaviorSubject<number>(3);
     private courierUrl : string = "api/courier/";
     private currentOrder =  new BehaviorSubject<Order | undefined>(undefined); 
 
@@ -26,11 +26,11 @@ export class CourierService {
         return this.currentState;
     }
 
-    takeOrder(order: Order) : Observable<Object> {
+    takeOrder(order: Order) : Observable<Object | undefined> {
         return this.http.get(this.courierUrl + "order/" + order.id + "/action/TO_DELIVERY")
             .pipe( (data) => {
                 this.currentOrder.next(order); 
-                this.currentState.next(3);
+                this.currentState.next(4);
                 return data; 
             });
     }
@@ -39,7 +39,7 @@ export class CourierService {
         return this.http.get(this.courierUrl + "order/" + order.id + "/action/TO_DELIVERED")
             .pipe( (data) => {
                 this.currentOrder.next(order); 
-                this.currentState.next(2);
+                this.currentState.next(3);
                 return data; 
             });
     }
