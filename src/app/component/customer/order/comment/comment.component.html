@@ -1,0 +1,18 @@
+<div class="mx-2">
+    <button class="bg-slate-100 w-full rounded-xl py-2" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="isOpen = !isOpen">
+        <p class="pretty-font font-semibold text-xl text-gray-700">{{comment}}</p>
+    </button>
+    <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+        <div class="flex bg-slate-200 p-2 max-w-min rounded-xl">
+            <input class="pretty-font text-xl font-semibold p-2 text-gray-700 rounded-xl">
+
+            <button class="bg-rose-500 mx-2 rounded-full" (click)="onSaveClicked()">
+                <p class="pretty-font text-lg font-semibold text-slate-200 p-4">Сохранить</p>
+            </button>
+
+            <button class="bg-grey-200" (click)="onCancelClicked()">
+                <span class="pretty-font text-lg font-semibold text-gray-700 p-4 h-full">Отмена</span>
+            </button>
+        </div>
+    </ng-template>
+</div>

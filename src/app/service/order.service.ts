@@ -90,6 +90,14 @@ export class OrderService {
             .subscribe((data) => console.log(data));
     }
 
+    setComment(comment: string) : void {
+        let currentOrderValue = this.currentOrder.value;
+        currentOrderValue.comment = comment;
+        this.currentOrder.next(currentOrderValue);
+        this.http.put(this.orderUrl + "/current", this.currentOrder.value)
+            .subscribe((data) => console.log(data));
+    }
+
     makeOrder(id: number){
         this.http.get(this.orderUrl + "/" + id + "/action/MAKE")
             .subscribe((e) => console.log("Order placed" + id));
