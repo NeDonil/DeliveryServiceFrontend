@@ -31,9 +31,9 @@ export class OrderComponent implements OnInit, OnDestroy{
 
     calcTotalPrice(): number {
         let sum = 0;
-        if(this.currentOrder && this.currentOrder.items){
+        if(this.currentOrder && this.currentOrder.items){ //Todo: use reduce
             this.currentOrder.items.forEach( (e) => {
-                if(e.product && e.count && e.product.price) sum += e.product.price * e.count;
+                if(e.product && e.count && e.product.price) sum += e.product.price * e.count; 
             });
         }
 
