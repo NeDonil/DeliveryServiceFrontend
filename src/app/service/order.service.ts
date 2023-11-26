@@ -100,12 +100,14 @@ export class OrderService {
 
     makeOrder(id: number){
         this.http.get(this.orderUrl + "/" + id + "/action/MAKE")
-            .subscribe((e) => console.log("Order placed" + id));
+            .subscribe((e) => {
+                this.getCurrentOrder()
+                    .subscribe((data) => console.log("Now current order is " + data.id));
+            });
 
-        setTimeout(() => console.log("Pause 1000ms"), 1000);
+        setTimeout(() => console.log("Pause 2000ms"), 2000);
 
-        this.getCurrentOrder()
-            .subscribe((data) => console.log("Now current order is " + data.id));
+        
     }
 
     getCurrentOrder(): Observable<Order>{
