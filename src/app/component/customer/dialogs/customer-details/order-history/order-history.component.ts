@@ -16,7 +16,12 @@ export class OrderHistoryComponent implements OnInit {
         this.orderService.getOrderHistory()
             .subscribe( (data) => {
                 this.orders = data;
-                console.log(data);
+                this.orders.sort((a, b) => {
+                    if(a.beginDate && b.beginDate) {
+                        return new Date(b.beginDate).getTime() - new Date(a.beginDate).getTime();
+                    }
+                    return -1;
+                });
             });
     }
 }
