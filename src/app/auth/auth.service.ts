@@ -96,7 +96,7 @@ export class AuthService {
                 this.router.navigate(['assembler']);
             } else if(this.isCourier()){
                 this.router.navigate(['courier']);
-            } 
+            }
             return true;
         }
         else {
@@ -141,6 +141,7 @@ export class AuthService {
 
     private handleLoginError<T>(operation = 'operation', result?: T) {
         console.log('handleLoginError');
+        debugger;
         return (error: any): Observable<T> => {
             if(error.status === 401) {
                 this.loggedIn.next(false);
@@ -155,7 +156,7 @@ export class AuthService {
                     }
                 );
             }
-            
+
             return of(result as T);
         };
     }
