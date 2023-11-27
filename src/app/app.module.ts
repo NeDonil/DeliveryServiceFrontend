@@ -48,6 +48,7 @@ import { CourierOrderComponent } from './component/courier/screen/courier-waitin
 import { DeliveryComponent } from './component/courier/screen/delivery/delivery.component';
 import { CommentComponent } from './component/customer/order/comment/comment.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { UserProfileComponent } from './component/customer/user-profile/user-profile.component';
 
 
 registerLocaleData(localeRu);
@@ -70,7 +71,8 @@ registerLocaleData(localeRu);
     CourierWaitingComponent,
     CourierOrderComponent,
     DeliveryComponent,
-    CommentComponent
+    CommentComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,
