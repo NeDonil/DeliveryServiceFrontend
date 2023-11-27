@@ -17,8 +17,8 @@ export class AddressComponent implements OnInit{
                 private orderService: OrderService){}
 
     ngOnInit() : void {
-        this.customerDetailsService.addresses
-            .subscribe( (data) => this.addresses = data);
+        this.customerDetailsService.customer
+            .subscribe( (data) => this.addresses = data.addresses);
 
         this.orderService.currentOrder
             .subscribe( (data) => this.currentAddress = data.address)

@@ -10,16 +10,14 @@ import {Customer} from "../model/Customer";
 export class CustomerDetailsService {
     private customerUrl = "api/customer";
 
-    addresses = new BehaviorSubject<Address[]>([]);
-    fio= new BehaviorSubject<string>("");
+    customer = new BehaviorSubject<Customer>({id: -1, fio: "", email: "", addresses : []});
     constructor(private http: HttpClient) {
         this.getCustomerDetails();
     }
     getCustomerDetails() : void {
         this.http.get<Customer>(this.customerUrl)
             .subscribe( (data) => {
-                this.addresses.next(data.addresses);
-                this.fio.next(data.fio);
+                this.customer.next(data);
             })
     }
 }

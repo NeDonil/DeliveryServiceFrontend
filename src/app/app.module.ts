@@ -49,7 +49,9 @@ import { DeliveryComponent } from './component/courier/screen/delivery/delivery.
 import { CommentComponent } from './component/customer/order/comment/comment.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { UserProfileComponent } from './component/customer/user-profile/user-profile.component';
-
+import { CustomerDetailsComponent } from './component/customer/dialogs/customer-details/customer-details.component';
+import {DialogModule, DialogRef} from "@angular/cdk/dialog";
+import {MatDialogRef} from "@angular/material/dialog";
 
 registerLocaleData(localeRu);
 
@@ -72,23 +74,30 @@ registerLocaleData(localeRu);
     CourierOrderComponent,
     DeliveryComponent,
     CommentComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,
-    MatCardModule, MatListModule, MatIconModule,FormsModule, 
-    MatFormFieldModule, MatInputModule, MatTooltipModule, 
-    MatButtonModule, MatAutocompleteModule, ReactiveFormsModule, 
+    MatCardModule, MatListModule, MatIconModule,FormsModule,
+    MatFormFieldModule, MatInputModule, MatTooltipModule,
+    MatButtonModule, MatAutocompleteModule, ReactiveFormsModule,
     AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
     MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
-    OverlayModule
+    OverlayModule, DialogModule
   ],
   providers: [
-    SessionStorageService, 
-    provideAnimations(),
-    {
-        provide: LOCALE_ID, useValue: 'ru'
-    }
+      SessionStorageService,
+      provideAnimations(),
+      {
+          provide: LOCALE_ID, useValue: 'ru'
+      },
+      {
+          provide: DialogRef,
+          useValue: {
+              close: (dialogResult: any) => { }
+          }
+      }
 ],
   bootstrap: [AppComponent]
 })
