@@ -14,14 +14,14 @@ export class OrderService {
 
     private orderUrl = "api/customer/order";
 
-    public currentOrder = new BehaviorSubject<Order>({id: 0, address : undefined, comment: " ", beginDate: new Date(), items: new Array<OrderItem>()});
+    public currentOrder = new BehaviorSubject<Order>({id: 0, address : undefined, comment: "", beginDate: new Date(), items: new Array<OrderItem>()});
 
     constructor(private http: HttpClient) { }
 
     addToOrder(product: Product): void {
         const items = this.currentOrder.value.items;
         const itemInOrder = items?.find((_item) => _item.product?.id === product.id);
-        
+
         if(itemInOrder && itemInOrder.count){
             itemInOrder.count += 1;
         } else {
@@ -39,7 +39,7 @@ export class OrderService {
         }
 
         const itemInOrder = items.find((_item) => _item.product?.id === product.id);
-        
+
         if(itemInOrder?.count && itemInOrder?.count > 1){
             itemInOrder.count -= 1;
         } else if(itemInOrder){
@@ -58,7 +58,7 @@ export class OrderService {
         }
 
         const itemInOrder = items.find((_item) => _item.product?.id === product.id);
-        
+
         if(itemInOrder){
             const itemIndex = items?.indexOf(itemInOrder, 0);
             items.splice(itemIndex, 1);
@@ -69,12 +69,12 @@ export class OrderService {
 
     updateOrder(items: Array<OrderItem> | undefined): void {
         const currentValue = this.currentOrder.value;
-        
+
         if(items){
             this.currentOrder.next({
-                id: currentValue.id, 
-                address: currentValue.address, 
-                comment: currentValue.comment, 
+                id: currentValue.id,
+                address: currentValue.address,
+                comment: currentValue.comment,
                 beginDate: currentValue.beginDate,
                 items: items
             });
@@ -90,12 +90,26 @@ export class OrderService {
             .subscribe((data) => console.log(data));
     }
 
+    setComment(comment: string) : void {
+        let currentOrderValue = this.currentOrder.value;
+        currentOrderValue.comment = comment;
+        this.http.put<Order>(this.orderUrl + "/current", this.currentOrder.value)
+            .subscribe((data) => {
+                console.log(data);
+                this.currentOrder.next(data);
+            });
+    }
+
     makeOrder(id: number){
         this.http.get(this.orderUrl + "/" + id + "/action/MAKE")
             .subscribe((e) => {
                 this.getCurrentOrder()
                     .subscribe((data) => console.log("Now current order is " + data.id));
             });
+
+        setTimeout(() => console.log("Pause 2000ms"), 2000);
+
+
     }
 
     getCurrentOrder(): Observable<Order>{

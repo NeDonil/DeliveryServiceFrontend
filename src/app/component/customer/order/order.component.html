@@ -1,5 +1,6 @@
-<div class="max-full flex-col">
-    <app-address></app-address>
+<div class=" flex-col">
+    <app-address class="max-w-full"></app-address>
+    <app-comment class="max-w-full" [comment]="currentOrder?.comment"></app-comment>
     <div class="mx-4 divide-y divide-solid">
         <app-order-item class="max-w-sm" *ngFor="let item of currentOrder?.items" [orderItem]="item"></app-order-item>
     </div>
