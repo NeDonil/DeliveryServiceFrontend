@@ -19,6 +19,8 @@ export class OrderService {
         beginDate: new Date(), endDate: new Date(),
         status: '', items: new Array<OrderItem>()});
 
+    public orderHistory = new BehaviorSubject<Order[]>([]);
+
     constructor(private http: HttpClient) { }
 
     addToOrder(product: Product): void {
@@ -83,7 +85,8 @@ export class OrderService {
                 status: currentValue.status,
                 items: items
             });
-            this.http.put(this.orderUrl + "/current", this.currentOrder.value).subscribe((data) => console.log(data));
+            this.http.put(this.orderUrl + "/current", this.currentOrder.value)
+                .subscribe((data) => console.log(data));
         }
     }
 
@@ -113,14 +116,27 @@ export class OrderService {
             });
     }
 
+    rejectOrder(id: number){
+        this.http.get(this.orderUrl + "/" + id + "/action/REFUSE")
+            .subscribe((e) => {
+                console.log("Order rejected " + id)
+                this.getOrderHistory().subscribe( (data) =>{
+                    console.log("Order history updated");
+                });
+            });
+    }
+
     getCurrentOrder(): Observable<Order>{
         this.http.get<Order>(this.orderUrl + "/current").subscribe( (value) => this.currentOrder.next(value));
         return this.currentOrder;
     }
 
     getOrderHistory(): Observable<Order[]>{
-        return this.http.get<Order[]>(this.orderUrl);
+        this.http.get<Order[]>(this.orderUrl)
+            .subscribe( (data) => {
+                this.orderHistory.next(data)
+            });
+        return this.orderHistory;
     }
-
 }
 

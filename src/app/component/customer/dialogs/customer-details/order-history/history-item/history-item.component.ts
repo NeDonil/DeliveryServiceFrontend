@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {Order} from "../../../../../../model/Order";
 import {ORDER_STATUS, ORDER_STATUS_MAPPER} from "../../../../../../model/OrderStatus";
 import {min} from "rxjs";
+import {OrderService} from "../../../../../../service/order.service";
 
 @Component({
   selector: 'app-history-item',
@@ -10,6 +11,8 @@ import {min} from "rxjs";
 
 export class HistoryItemComponent {
     @Input() order !: Order;
+
+    constructor(private orderService: OrderService) {}
 
     calcTotalPrice(): number {
         let sum = 0;
@@ -43,5 +46,12 @@ export class HistoryItemComponent {
         return prettyStatus;
     }
 
+    rejectOrder() : void {
+        if(this.order.id) {
+            this.orderService.rejectOrder(this.order.id);
+        }
+    }
+
     protected readonly ORDER_STATUS_MAPPER = ORDER_STATUS_MAPPER;
+    protected readonly ORDER_STATUS = ORDER_STATUS;
 }
