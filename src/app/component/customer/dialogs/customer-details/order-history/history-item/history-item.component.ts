@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Order} from "../../../../../../model/Order";
-import {ORDER_STATUS_MAPPER} from "../../../../../../model/OrderStatus";
+import {ORDER_STATUS, ORDER_STATUS_MAPPER} from "../../../../../../model/OrderStatus";
+import {min} from "rxjs";
 
 @Component({
   selector: 'app-history-item',
@@ -18,6 +19,28 @@ export class HistoryItemComponent {
             });
         }
         return sum;
+    }
+
+    getPrettyStatus(status: string | undefined) : string {
+        let prettyStatus = '';
+        if(status) {
+             prettyStatus = ORDER_STATUS_MAPPER[status];
+        }
+        if(status == ORDER_STATUS.DELIVERED && this.order.endDate && this.order.beginDate){
+            const minutes = Math.floor((
+                new Date(this.order.endDate).getTime() -
+                new Date(this.order.beginDate).getTime()
+            ) / (1000 * 60));
+
+            let form = ''
+            if( (minutes % 10) == 1) form = ' минуту';
+            else if( (minutes % 10) > 1 && (minutes % 10) < 5) form = ' минуту';
+            else form = ' минут';
+
+            prettyStatus += ' за ' + minutes + form;
+        }
+
+        return prettyStatus;
     }
 
     protected readonly ORDER_STATUS_MAPPER = ORDER_STATUS_MAPPER;
