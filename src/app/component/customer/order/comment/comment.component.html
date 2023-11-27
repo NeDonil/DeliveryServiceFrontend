@@ -1,6 +1,6 @@
 <div class="mx-4 pb-4">
-    <button class="bg-slate-100 w-full rounded-xl py-4" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="isOpen = !isOpen">
-        <span class="pretty-font font-semibold text-xl text-gray-500">
+    <button class="bg-slate-100 w-full rounded-xl py-4 px-2" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="isOpen = !isOpen">
+        <span class="pretty-font font-semibold text-xl text-gray-500 line-clamp-2">
             {{comment ? comment : 'Оставить комментарий'}}
         </span>
     </button>

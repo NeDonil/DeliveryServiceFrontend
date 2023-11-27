@@ -8,7 +8,7 @@ module.exports = {
     },
     plugins: [
         require('@tailwindcss/line-clamp'),
-        
+
         function({addUtilities}){
             const newUtilities = {
                 ".no-scrollbar::-webkit-scrollbar" :{
@@ -25,6 +25,9 @@ module.exports = {
 
                 ".bg-pretty-gray": {
                     "backgroud-color": "#f2f2f2"
+                },
+                "max-h": {
+                    '128': '32rem',
                 }
             };
 
