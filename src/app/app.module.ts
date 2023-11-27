@@ -17,7 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDividerModule } from '@angular/material/divider';
-import { AsyncPipe } from '@angular/common';
+import {AsyncPipe, NgOptimizedImage} from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -51,7 +51,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { UserProfileComponent } from './component/customer/user-profile/user-profile.component';
 import { CustomerDetailsComponent } from './component/customer/dialogs/customer-details/customer-details.component';
 import {DialogModule, DialogRef} from "@angular/cdk/dialog";
-import {MatDialogRef} from "@angular/material/dialog";
+import { OrderHistoryComponent } from './component/customer/dialogs/customer-details/order-history/order-history.component';
+import { HistoryItemComponent } from './component/customer/dialogs/customer-details/order-history/history-item/history-item.component';
 
 registerLocaleData(localeRu);
 
@@ -75,17 +76,19 @@ registerLocaleData(localeRu);
     DeliveryComponent,
     CommentComponent,
     UserProfileComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    OrderHistoryComponent,
+    HistoryItemComponent
   ],
-  imports: [
-    BrowserModule,AppRoutingModule, BrowserAnimationsModule,
-    MatCardModule, MatListModule, MatIconModule,FormsModule,
-    MatFormFieldModule, MatInputModule, MatTooltipModule,
-    MatButtonModule, MatAutocompleteModule, ReactiveFormsModule,
-    AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
-    MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
-    OverlayModule, DialogModule
-  ],
+    imports: [
+        BrowserModule, AppRoutingModule, BrowserAnimationsModule,
+        MatCardModule, MatListModule, MatIconModule, FormsModule,
+        MatFormFieldModule, MatInputModule, MatTooltipModule,
+        MatButtonModule, MatAutocompleteModule, ReactiveFormsModule,
+        AsyncPipe, MatDividerModule, ScrollingModule, MatGridListModule,
+        MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
+        OverlayModule, DialogModule, NgOptimizedImage
+    ],
   providers: [
       SessionStorageService,
       provideAnimations(),

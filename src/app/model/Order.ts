@@ -1,10 +1,12 @@
 import { Address } from "./Address";
 import { OrderItem } from "./OrderItem";
 
-export class Order{
-    id : number | undefined;
-    comment: string | undefined;
-    address: Address | undefined;
-    beginDate !: Date;
-    items: Array<OrderItem> | undefined;
+export interface Order{
+    id : number ;
+    comment: string ;
+    address: Address ;
+    beginDate : Date;
+    endDate : Date;
+    status : string;
+    items: Array<OrderItem>;
 }

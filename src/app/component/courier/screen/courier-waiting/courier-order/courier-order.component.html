@@ -1,6 +1,6 @@
 <div class="rounded-xl bg-gray-500 flex h-full">
     <button class="bg-gray-500 rounded-xl p-4 w-full" (click)="selected = !selected">
-        <p class="pretty-font font-medium text-gray-100 text-2xl text-left">{{order.address?.value}}</p>
+        <p class="pretty-font font-medium text-gray-100 text-2xl text-left">{{order.address.value}}</p>
         <div class="flex mx-auto justify-between">
             <p class="pretty-font text-gray-300 text-xl font-semibold text-left">{{itemsCount}} товара</p>
             <p class="pretty-font text-gray-300 text-xl font-semibold text-left">{{this.order.beginDate | date:'hh:mm'}}</p>
