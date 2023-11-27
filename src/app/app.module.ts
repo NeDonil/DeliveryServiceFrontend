@@ -46,6 +46,9 @@ import { CourierComponent } from './component/courier/courier.component';
 import { CourierWaitingComponent } from './component/courier/screen/courier-waiting/courier-waiting.component';
 import { CourierOrderComponent } from './component/courier/screen/courier-waiting/courier-order/courier-order.component';
 import { DeliveryComponent } from './component/courier/screen/delivery/delivery.component';
+import { CommentComponent } from './component/customer/order/comment/comment.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+
 
 registerLocaleData(localeRu);
 
@@ -66,7 +69,8 @@ registerLocaleData(localeRu);
     CourierComponent,
     CourierWaitingComponent,
     CourierOrderComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule, BrowserAnimationsModule,
@@ -74,7 +78,8 @@ registerLocaleData(localeRu);
     MatFormFieldModule, MatInputModule, MatTooltipModule, 
     MatButtonModule, MatAutocompleteModule, ReactiveFormsModule, 
     AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
-    MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule
+    MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
+    OverlayModule
   ],
   providers: [
     SessionStorageService, 

@@ -1,5 +1,6 @@
-<div class="max-full flex-col">
-    <app-address></app-address>
+<div class=" flex-col">
+    <app-address class="max-w-full"></app-address>
+    <app-comment class="max-w-full" [comment]="currentOrder?.comment"></app-comment>
     <div class="mx-4 divide-y divide-solid">
         <app-order-item class="max-w-sm" *ngFor="let item of currentOrder?.items" [orderItem]="item"></app-order-item>
     </div>
@@ -11,9 +12,9 @@
             <span class="pretty-font text-2xl text-neutral-700 font-bold">{{totalPrice | currency :'RUB':'symbol':'1.0-0'}}</span>
         </div>
         <div class="max-w-full mx-4">
-            <div *ngIf="currentOrder && currentOrder.items && currentOrder.items.length > 0; then activeButton else disabledButton"></div>
+            <div *ngIf="currentOrder && currentOrder.items && currentOrder.items.length > 0 && currentOrder.address; then activeButton else disabledButton"></div>
             <ng-template #disabledButton>
-                <button class="h-16 my-5 rounded-full text-lg font-medium text-gray-200 bg-rose-300 w-full" disabled>Выберите товары</button>
+                <button class="h-16 my-5 rounded-full text-lg font-medium text-gray-200 bg-rose-300 w-full" disabled>Продолжить</button>
             </ng-template>
             <ng-template #activeButton>
                 <button class="h-16 my-5 rounded-full text-lg font-medium text-gray-200 bg-rose-500 w-full" (click)="makeOrder()">Продолжить</button>
