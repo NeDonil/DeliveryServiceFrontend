@@ -35,7 +35,7 @@ import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { GroupItemComponent } from './component/customer/groups/group-item/group-item.component';
 import { AddressComponent } from './component/customer/order/address/address.component';
-import { AddressItemComponent } from './component/customer/order/address/address-item/address-item.component';
+import { AddressItemComponent } from './component/customer/dialogs/address-dialog/address-item/address-item.component';
 import { AssemblerComponent } from './component/assembler/assembler.component';
 import { WaitingComponent } from './component/assembler/screen/waiting/waiting.component';
 import { AssemblerOrderComponent } from './component/assembler/screen/waiting/order/assembler-order.component';
@@ -53,6 +53,8 @@ import { CustomerDetailsComponent } from './component/customer/dialogs/customer-
 import {DialogModule, DialogRef} from "@angular/cdk/dialog";
 import { OrderHistoryComponent } from './component/customer/dialogs/customer-details/order-history/order-history.component';
 import { HistoryItemComponent } from './component/customer/dialogs/customer-details/order-history/history-item/history-item.component';
+import { AddressDialogComponent } from './component/customer/dialogs/address-dialog/address-dialog.component';
+import { AddressCreateComponent } from './component/customer/dialogs/address-dialog/address-create/address-create.component';
 
 registerLocaleData(localeRu);
 
@@ -78,7 +80,9 @@ registerLocaleData(localeRu);
     UserProfileComponent,
     CustomerDetailsComponent,
     OrderHistoryComponent,
-    HistoryItemComponent
+    HistoryItemComponent,
+    AddressDialogComponent,
+    AddressCreateComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,
