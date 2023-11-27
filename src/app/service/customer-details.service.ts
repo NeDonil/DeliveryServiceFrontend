@@ -20,4 +20,11 @@ export class CustomerDetailsService {
                 this.customer.next(data);
             })
     }
+
+    createAddress(address: string) : void {
+        this.http.post(this.customerUrl + "/address", address)
+            .subscribe( (data) => {
+                this.getCustomerDetails();
+            })
+    }
 }
