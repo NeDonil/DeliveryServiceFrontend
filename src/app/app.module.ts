@@ -17,7 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDividerModule } from '@angular/material/divider';
-import { AsyncPipe } from '@angular/common';
+import {AsyncPipe, NgOptimizedImage} from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -48,7 +48,11 @@ import { CourierOrderComponent } from './component/courier/screen/courier-waitin
 import { DeliveryComponent } from './component/courier/screen/delivery/delivery.component';
 import { CommentComponent } from './component/customer/order/comment/comment.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-
+import { UserProfileComponent } from './component/customer/user-profile/user-profile.component';
+import { CustomerDetailsComponent } from './component/customer/dialogs/customer-details/customer-details.component';
+import {DialogModule, DialogRef} from "@angular/cdk/dialog";
+import { OrderHistoryComponent } from './component/customer/dialogs/customer-details/order-history/order-history.component';
+import { HistoryItemComponent } from './component/customer/dialogs/customer-details/order-history/history-item/history-item.component';
 
 registerLocaleData(localeRu);
 
@@ -70,23 +74,33 @@ registerLocaleData(localeRu);
     CourierWaitingComponent,
     CourierOrderComponent,
     DeliveryComponent,
-    CommentComponent
+    CommentComponent,
+    UserProfileComponent,
+    CustomerDetailsComponent,
+    OrderHistoryComponent,
+    HistoryItemComponent
   ],
-  imports: [
-    BrowserModule,AppRoutingModule, BrowserAnimationsModule,
-    MatCardModule, MatListModule, MatIconModule,FormsModule, 
-    MatFormFieldModule, MatInputModule, MatTooltipModule, 
-    MatButtonModule, MatAutocompleteModule, ReactiveFormsModule, 
-    AsyncPipe, MatDividerModule, ScrollingModule,MatGridListModule,
-    MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
-    OverlayModule
-  ],
+    imports: [
+        BrowserModule, AppRoutingModule, BrowserAnimationsModule,
+        MatCardModule, MatListModule, MatIconModule, FormsModule,
+        MatFormFieldModule, MatInputModule, MatTooltipModule,
+        MatButtonModule, MatAutocompleteModule, ReactiveFormsModule,
+        AsyncPipe, MatDividerModule, ScrollingModule, MatGridListModule,
+        MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
+        OverlayModule, DialogModule, NgOptimizedImage
+    ],
   providers: [
-    SessionStorageService, 
-    provideAnimations(),
-    {
-        provide: LOCALE_ID, useValue: 'ru'
-    }
+      SessionStorageService,
+      provideAnimations(),
+      {
+          provide: LOCALE_ID, useValue: 'ru'
+      },
+      {
+          provide: DialogRef,
+          useValue: {
+              close: (dialogResult: any) => { }
+          }
+      }
 ],
   bootstrap: [AppComponent]
 })
