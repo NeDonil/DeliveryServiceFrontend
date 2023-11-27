@@ -96,7 +96,7 @@ export class AuthService {
                 this.router.navigate(['assembler']);
             } else if(this.isCourier()){
                 this.router.navigate(['courier']);
-            } 
+            }
             return true;
         }
         else {
@@ -155,7 +155,7 @@ export class AuthService {
                     }
                 );
             }
-            
+
             return of(result as T);
         };
     }

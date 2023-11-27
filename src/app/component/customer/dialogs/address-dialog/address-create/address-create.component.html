@@ -1,0 +1,22 @@
+<div class="rounded-2xl bg-white p-5 flex flex-col justify-between">
+    <span class="pretty-font text-xl font-semibold text-gray-700">Введите адрес</span>
+    <div class="flex bg-slate-200 p-2 max-w-min rounded-xl">
+        <div>
+            <input [formControl]="street" class="pretty-font text-xl font-semibold p-2 text-gray-700 rounded-xl my-2 placeholder-gray-500" placeholder="Улица">
+            <input [formControl]="house" class="pretty-font text-xl font-semibold p-2 text-gray-700 rounded-xl my-2 placeholder-gray-500" placeholder="Дом">
+            <input [formControl]="enter" class="pretty-font text-xl font-semibold p-2 text-gray-700 rounded-xl my-2 placeholder-gray-500" placeholder="Подъезд">
+            <input [formControl]="floor" class="pretty-font text-xl font-semibold p-2 text-gray-700 rounded-xl my-2 placeholder-gray-500" placeholder="Этаж">
+            <input [formControl]="apartment" class="pretty-font text-xl font-semibold p-2 text-gray-700 rounded-xl my-2 placeholder-gray-500" placeholder="Квартира">
+        </div>
+
+    </div>
+    <div class="flex justify-between mt-2">
+        <button class="bg-rose-500 mx-2 py-2 rounded-full">
+            <span class="pretty-font text-lg font-semibold text-slate-200 p-4" (click)="onCreate()">Сохранить</span>
+        </button>
+
+        <button class="bg-grey-200 py-2">
+            <span class="pretty-font text-lg font-semibold text-gray-700 p-4 h-full" (click)="onCancel()">Отмена</span>
+        </button>
+    </div>
+</div>

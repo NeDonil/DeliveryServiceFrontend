@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad{
                         let checkAuthRole!: boolean;
                         loggedUser.authorities.forEach(el => checkAuthRole = el.authority == role);
                         if(checkAuthRole){
-                            let access = AuthService.checkAuthUser(loggedUser, ROLE_MAPPER[role]);
+                            let access = AuthService.checkAuthUser(loggedUser, role);
 
                             if(!access && checkAuthRole){
                                 this.redirectToLogin();

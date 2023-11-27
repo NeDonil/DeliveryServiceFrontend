@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs';
 import { Address } from 'src/app/model/Address';
 import { CustomerDetailsService } from 'src/app/service/customer-details.service';
 import { OrderService } from 'src/app/service/order.service';
+import {AddressDialogComponent} from "../../dialogs/address-dialog/address-dialog.component";
+import {Dialog} from "@angular/cdk/dialog";
+import {CustomerDetailsComponent} from "../../dialogs/customer-details/customer-details.component";
 
 @Component({
   selector: 'app-address',
@@ -14,7 +17,8 @@ export class AddressComponent implements OnInit{
     currentAddress : Address | undefined;
 
     constructor(private customerDetailsService: CustomerDetailsService,
-                private orderService: OrderService){}
+                private orderService: OrderService,
+                private dialog: Dialog){}
 
     ngOnInit() : void {
         this.customerDetailsService.customer
@@ -22,6 +26,16 @@ export class AddressComponent implements OnInit{
 
         this.orderService.currentOrder
             .subscribe( (data) => this.currentAddress = data.address)
+    }
+
+    openDialog() : void {
+        this.dialog.open<string>(AddressDialogComponent,
+            {data : {
+                    addresses: this.addresses,
+                    currentAddressId : this.currentAddress?.id
+                },
+            }
+        )
     }
 
     onAddressSelected(address: Address) : void {
