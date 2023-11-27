@@ -1,6 +1,6 @@
 <div>
-    <div class="flex p-3" *ngFor="let group of groups">
-        <app-group-item 
+    <div class="flex p-3 mx-2" *ngFor="let group of groups">
+        <app-group-item
         [group]="group"
         (groupSelected)="onGroupSelected($event)"
         ></app-group-item>
