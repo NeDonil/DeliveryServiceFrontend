@@ -1,11 +1,16 @@
 <div class="px-4 justify-between min-w-full">
-    <input type="text" class="bg-stone-100 rounded-full w-full min-h-4 mt-4 p-2 text-xl text-n px-5 ">
+    <div class="mt-4 flex">
+        <button class="rounded-full bg-stone-100 px-3 mr-2">
+            <svg fill="#404040" width="20px" height="20px" viewBox="0 0 50 50" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit"><path d="M35.66 29.539c1.661-2.739 2.632-5.948 2.632-9.385 0-10.029-8.115-18.15-18.146-18.154-10.022.003-18.146 8.125-18.146 18.152 0 10.018 8.125 18.139 18.152 18.139 3.44 0 6.645-.972 9.384-2.633l12.343 12.342 6.121-6.124-12.34-12.337zm-15.51 1.841c-6.202-.015-11.216-5.027-11.227-11.216.012-6.202 5.027-11.215 11.227-11.229 6.199.016 11.215 5.028 11.228 11.229-.013 6.182-5.031 11.201-11.228 11.216z"/></svg>
+        </button>
+        <input type="text" class="bg-stone-100 pretty-font font-semibold text-gray-700 rounded-full w-full min-h-4 p-2 text-xl text-n px-5">
+    </div>
 
     <div class="grid xl:grid-cols-5 md:grid-cols-3 gap-2 my-5">
-        <app-product-cart 
-        *ngFor="let p of products" 
+        <app-product-cart
+        *ngFor="let p of products"
         [product]='p'
-        (addToOrder)="onAddToOrder($event)" 
+        (addToOrder)="onAddToOrder($event)"
         ></app-product-cart>
     </div>
 </div>
