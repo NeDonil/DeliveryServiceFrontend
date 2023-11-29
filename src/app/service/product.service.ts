@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Group } from '../model/Group';
@@ -19,9 +19,13 @@ export class ProductService {
         return this.http.get<Group[]>(this.productUrl + "/group");
     }
 
-
     getProductsInGroup(groupId: number): Observable<Product[]>{
         this.http.get<Product[]>(this.productUrl + "/group/" + groupId).subscribe(data => this.currentGroup.next(data));
         return this.currentGroup;
+    }
+
+    findProducts(pattern: string) : Observable<Product[]> {
+        const params = new HttpParams().set("pattern", pattern);
+        return this.http.get<Product[]>(this.productUrl + "/find", {params});
     }
 }
