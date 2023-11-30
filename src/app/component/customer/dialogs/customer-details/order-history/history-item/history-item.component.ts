@@ -36,8 +36,9 @@ export class HistoryItemComponent {
             ) / (1000 * 60));
 
             let form = ''
-            if( (minutes % 10) == 1) form = ' минуту';
-            else if( (minutes % 10) > 1 && (minutes % 10) < 5) form = ' минуту';
+            if( ( (minutes > 5) && (minutes <= 20) ) ) form = ' минут';
+            else if( (minutes % 10) == 1) form = ' минуту';
+            else if( (minutes % 10) > 1 && (minutes % 10) < 5) form = ' минуты';
             else form = ' минут';
 
             prettyStatus += ' за ' + minutes + form;
