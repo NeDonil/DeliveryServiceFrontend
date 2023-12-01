@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Order } from 'src/app/model/Order';
 import { CourierService } from 'src/app/service/courier.service';
 
 @Component({
   selector: 'app-courier',
-  templateUrl: 'courier.component.html' 
+  templateUrl: 'courier.component.html'
 })
-export class CourierComponent {
+export class CourierComponent implements OnInit{
     currentOrder : Order | undefined;
-    currentOrderSubscription = new Subscription;
 
     currentState: number = 3;
     currentStateSubscription = new Subscription;
@@ -17,22 +16,12 @@ export class CourierComponent {
     constructor(private courierService: CourierService){}
 
     ngOnInit() : void {
-        this.currentOrderSubscription = this.courierService
+        this.courierService
             .getCurrentOrder()
             .subscribe( (data) => this.currentOrder = data);
-        
+
         this.currentStateSubscription = this.courierService
             .getCurrentState()
             .subscribe( (data) => this.currentState = data);
-    }
-
-    ngOnDestroy(): void {
-        if(this.currentOrderSubscription){
-            this.currentOrderSubscription.unsubscribe();
-        }
-
-        if(this.currentState){
-            this.currentStateSubscription.unsubscribe();
-        }
     }
 }
