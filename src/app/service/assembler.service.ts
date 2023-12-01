@@ -28,15 +28,12 @@ export class AssemblerService {
     }
 
     takeOrder(order: Order) : Observable<Object> {
-        /*return this.http.get(this.assemblerUrl + "order/" + order.id + "/action/TO_ASSEMBLY")
+        return this.http.get(this.assemblerUrl + "order/" + order.id + "/action/TO_ASSEMBLY")
             .pipe( (data) => {
                 this.currentOrder.next(order);
                 this.currentState.next(2);
                 return data;
-            }); */
-        this.currentState.next(2);
-        this.currentOrder.next(order);
-        return new Observable<Object>();
+            });
     }
 
     makeAssembled(order: Order): Observable<Object> {
