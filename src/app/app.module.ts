@@ -55,6 +55,7 @@ import { OrderHistoryComponent } from './component/customer/dialogs/customer-det
 import { HistoryItemComponent } from './component/customer/dialogs/customer-details/order-history/history-item/history-item.component';
 import { AddressDialogComponent } from './component/customer/dialogs/address-dialog/address-dialog.component';
 import { AddressCreateComponent } from './component/customer/dialogs/address-dialog/address-create/address-create.component';
+import { EmployeeCommentComponent } from './component/common/employee-comment/employee-comment.component';
 
 registerLocaleData(localeRu);
 
@@ -82,7 +83,8 @@ registerLocaleData(localeRu);
     OrderHistoryComponent,
     HistoryItemComponent,
     AddressDialogComponent,
-    AddressCreateComponent
+    AddressCreateComponent,
+    EmployeeCommentComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,
