@@ -37,7 +37,6 @@ export class StatusColumnComponent implements OnInit, OnDestroy{
         if(this.status == ORDER_ACTION_MAPPER[msg.code]){
             this.orders.push({order: msg.order, employee : msg.employee});
         } else {
-            debugger;
             this.orders = this.orders?.filter(el => {
                 return el.order.id !== msg.order.id;
             });
