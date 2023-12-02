@@ -39,7 +39,7 @@ export class WaitingComponent implements OnInit, OnDestroy {
     }
 
     onTakeOrder(order: Order){
-        this.assemblerService.takeOrder(order).subscribe(() => console.log("Take order: " + order.id + " success"));
+        this.assemblerService.takeOrder(order);
     }
 
     ngOnDestroy(): void {

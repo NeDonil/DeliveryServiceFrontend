@@ -5,6 +5,7 @@ import { Order } from '../model/Order';
 import { Product } from '../model/Product';
 import {WebsocketService} from "./websocket.service";
 import {OrderMessage} from "../message/OrderMessage";
+import {ORDER_ACTION} from "../model/OrderAction";
 
 @Injectable({
     providedIn: 'root'
@@ -33,21 +34,21 @@ export class AssemblerService {
         return this.currentState;
     }
 
-    takeOrder(order: Order) : Observable<Object> {
-        return this.http.get(this.assemblerUrl + "order/" + order.id + "/action/TO_ASSEMBLY")
-            .pipe( (data) => {
+    takeOrder(order : Order) : void {
+        this.websocketService.watch("/order/" + order.id)
+            .subscribe((msg) => {
                 this.currentOrder.next(order);
                 this.currentState.next(2);
-                return data;
             });
+        this.websocketService.publish({destination: "/assembler/order/" + order.id, body : ORDER_ACTION.TO_ASSEMBLY});
     }
 
-    makeAssembled(order: Order): Observable<Object> {
-        return this.http.get(this.assemblerUrl + "order/" + order.id + "/action/TO_ASSEMBLED")
-            .pipe( (data) => {
+    makeAssembled(order: Order): void {
+        this.websocketService.watch("/order/" + order.id)
+            .subscribe((msg) => {
                 this.currentOrder.next(order);
                 this.currentState.next(1);
-                return data;
             });
+        this.websocketService.publish({destination: "/assembler/order/" + order.id, body : ORDER_ACTION.TO_ASSEMBLED});
     }
 }
