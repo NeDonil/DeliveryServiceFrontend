@@ -1,4 +1,7 @@
 <div class="w-full h-full bg-blue-100 flex justify-between p-5">
     <app-status-column [title]="'Заказы'" [legend]="'Ожидают'" [status]="ORDER_STATUS.PLACED"></app-status-column>
+    <app-status-column [title]="'Сборка'" [legend]="'Собираются'" [status]="ORDER_STATUS.ASSEMBLING"></app-status-column>
+    <app-status-column [title]="'Сборка'" [legend]="'Собраны'" [status]="ORDER_STATUS.ASSEMBLED"></app-status-column>
+    <app-status-column [title]="'Доставка'" [legend]="'Доставляются'" [status]="ORDER_STATUS.DELIVERING"></app-status-column>
 
 </div>
