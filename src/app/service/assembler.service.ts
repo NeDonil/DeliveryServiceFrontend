@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Order } from '../model/Order';
 import { Product } from '../model/Product';
+import {WebsocketService} from "./websocket.service";
+import {OrderMessage} from "../message/OrderMessage";
 
 @Injectable({
     providedIn: 'root'
@@ -13,10 +15,14 @@ export class AssemblerService {
     private assemblerUrl : string = "api/assembler/";
     private currentOrder =  new BehaviorSubject<Order | undefined>(undefined);
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private websocketService : WebsocketService) { }
 
     getOrders() : Observable<Order[]> {
         return this.http.get<Order[]>(this.assemblerUrl + "order");
+    }
+
+    getOrdersSubscription(): Observable<any>{
+        return this.websocketService.watch("/order/placed");
     }
 
     getCurrentOrder() : BehaviorSubject<Order | undefined>{

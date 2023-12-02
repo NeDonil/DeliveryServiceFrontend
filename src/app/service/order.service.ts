@@ -14,7 +14,7 @@ import {ORDER_ACTION} from "../model/OrderAction";
 })
 export class OrderService {
 
-    private orderUrl = "api/customer/order";
+    private orderUrl = "/api/customer/order";
 
     public currentOrder = new BehaviorSubject<Order>({
         id: 0, address : new Address(), comment: "",
@@ -116,7 +116,7 @@ export class OrderService {
             this.getCurrentOrder()
                 .subscribe((data) => console.log("Now current order is " + data.id));
         });
-        this.websocketService.publish({destination : "/order/" + id, body: ORDER_ACTION.MAKE});
+        this.websocketService.publish({destination : "/customer/order/" + id, body: ORDER_ACTION.MAKE});
     }
 
     rejectOrder(id: number){
@@ -124,7 +124,7 @@ export class OrderService {
             this.getCurrentOrder()
                 .subscribe((data) => console.log("Reject from order " + data.id));
         });
-        this.websocketService.publish({destination : "/order/" + id, body: ORDER_ACTION.REFUSE});
+        this.websocketService.publish({destination : "/customer/order/" + id, body: ORDER_ACTION.REFUSE});
     }
 
     getCurrentOrder(): Observable<Order>{
