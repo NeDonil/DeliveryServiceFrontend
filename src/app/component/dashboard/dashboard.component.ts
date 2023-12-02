@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ORDER_STATUS} from "../../model/OrderStatus";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+    protected readonly ORDER_STATUS = ORDER_STATUS;
 }

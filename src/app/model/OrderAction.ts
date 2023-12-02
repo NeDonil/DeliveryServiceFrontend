@@ -1,3 +1,4 @@
+import {ORDER_STATUS} from "./OrderStatus";
 
 export enum ORDER_ACTION {
     MAKE = '0',
@@ -6,4 +7,12 @@ export enum ORDER_ACTION {
     TO_ASSEMBLED = '3',
     TO_DELIVERY = '4',
     TO_DELIVERED = '5'
+}
+
+export const ORDER_ACTION_MAPPER : {[char: string]: string} = {
+    "MAKE": ORDER_STATUS.PLACED,
+    "TO_ASSEMBLY": ORDER_STATUS.ASSEMBLING,
+    "TO_ASSEMBLED": ORDER_STATUS.ASSEMBLED,
+    "TO_DELIVERY": ORDER_STATUS.DELIVERING,
+    "TO_DELIVERED": ORDER_STATUS.DELIVERED,
 }

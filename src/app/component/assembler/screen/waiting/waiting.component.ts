@@ -2,8 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Order} from 'src/app/model/Order';
 import {AssemblerService} from 'src/app/service/assembler.service';
-import {OrderMessage} from "../../../../message/OrderMessage";
-import {ORDER_ACTION} from "../../../../model/OrderAction";
 
 @Component({
   selector: 'app-waiting',
