@@ -56,6 +56,8 @@ import { HistoryItemComponent } from './component/customer/dialogs/customer-deta
 import { AddressDialogComponent } from './component/customer/dialogs/address-dialog/address-dialog.component';
 import { AddressCreateComponent } from './component/customer/dialogs/address-dialog/address-create/address-create.component';
 import { EmployeeCommentComponent } from './component/common/employee-comment/employee-comment.component';
+import {WebsocketService} from "./service/websocket.service";
+import {WebsocketConfig} from "./config/websocket.config";
 
 registerLocaleData(localeRu);
 
@@ -105,6 +107,15 @@ registerLocaleData(localeRu);
           provide: DialogRef,
           useValue: {
               close: (dialogResult: any) => { }
+          }
+      },
+      {
+          provide : WebsocketService,
+          useFactory: ()=>{
+              const service = new WebsocketService();
+              service.configure(WebsocketConfig);
+              service.activate()
+              return service;
           }
       }
 ],

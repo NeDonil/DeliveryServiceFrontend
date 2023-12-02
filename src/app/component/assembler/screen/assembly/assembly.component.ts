@@ -22,11 +22,10 @@ export class AssemblyComponent implements OnInit {
 
     assembledClicked() : void {
         if(this.order && this.order){
-            this.assemblerService.makeAssembled(this.order)
-            .subscribe(data => console.log("Assembled success"));
+            this.assemblerService.makeAssembled(this.order);
         }
     }
-    
+
     ngOnInit() : void {
         if(this.order){
             this.order.items?.forEach((el) => {

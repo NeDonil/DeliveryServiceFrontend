@@ -1,18 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {BehaviorSubject, Observable, Observer} from 'rxjs';
 import { Group } from '../model/Group';
 import { Product } from '../model/Product';
 import { Order } from '../model/Order';
 import { OrderItem } from '../model/OrderItem';
 import { Address } from '../model/Address';
+import {WebsocketService} from "./websocket.service";
+import {ORDER_ACTION} from "../model/OrderAction";
+import {IMessage} from "@stomp/rx-stomp";
 
 @Injectable({
     providedIn: 'root'
 })
 export class OrderService {
 
-    private orderUrl = "api/customer/order";
+    private orderUrl = "/api/customer/order";
 
     public currentOrder = new BehaviorSubject<Order>({
         id: 0, address : new Address(), comment: "",
@@ -21,7 +24,8 @@ export class OrderService {
 
     public orderHistory = new BehaviorSubject<Order[]>([]);
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+                private websocketService: WebsocketService) { }
 
     addToOrder(product: Product): void {
         const items = this.currentOrder.value.items;
@@ -109,21 +113,19 @@ export class OrderService {
     }
 
     makeOrder(id: number){
-        this.http.get(this.orderUrl + "/" + id + "/action/MAKE")
-            .subscribe((e) => {
-                this.getCurrentOrder()
-                    .subscribe((data) => console.log("Now current order is " + data.id));
-            });
+        this.websocketService.watch("/order/" + id).subscribe(() => {
+            this.getCurrentOrder()
+                .subscribe((data) => console.log("Now current order is " + data.id));
+        });
+        this.websocketService.publish({destination : "/customer/order/" + id, body: ORDER_ACTION.MAKE});
     }
 
     rejectOrder(id: number){
-        this.http.get(this.orderUrl + "/" + id + "/action/REFUSE")
-            .subscribe((e) => {
-                console.log("Order rejected " + id)
-                this.getOrderHistory().subscribe( (data) =>{
-                    console.log("Order history updated");
-                });
-            });
+        this.websocketService.watch("/order/" + id).subscribe(() => {
+            this.getCurrentOrder()
+                .subscribe((data) => console.log("Reject from order " + data.id));
+        });
+        this.websocketService.publish({destination : "/customer/order/" + id, body: ORDER_ACTION.REFUSE});
     }
 
     getCurrentOrder(): Observable<Order>{
@@ -137,6 +139,10 @@ export class OrderService {
                 this.orderHistory.next(data)
             });
         return this.orderHistory;
+    }
+
+    getOrderSubscription(id: number) {
+        return this.websocketService.watch("/order/" + id);
     }
 }
 

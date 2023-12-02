@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Order} from "../../../../../../model/Order";
 import {ORDER_STATUS, ORDER_STATUS_MAPPER} from "../../../../../../model/OrderStatus";
-import {min} from "rxjs";
+import {min, Subscription} from "rxjs";
 import {OrderService} from "../../../../../../service/order.service";
 
 @Component({
@@ -9,10 +9,23 @@ import {OrderService} from "../../../../../../service/order.service";
   templateUrl: './history-item.component.html'
 })
 
-export class HistoryItemComponent {
+export class HistoryItemComponent  implements OnInit, OnDestroy{
     @Input() order !: Order;
 
+    orderSubscription !: Subscription;
     constructor(private orderService: OrderService) {}
+
+    ngOnInit() {
+        if(this.order && this.order.id) {
+            this.orderSubscription = this.orderService.getOrderSubscription(this.order.id)
+                .subscribe((msg) => {
+                    const orderMessage = JSON.parse(msg.body);
+                    if(orderMessage.code == "REFUSE"){
+                        this.order.status = ORDER_STATUS.REJECTED;
+                    }
+                })
+        }
+    }
 
     calcTotalPrice(): number {
         let sum = 0;
@@ -50,6 +63,12 @@ export class HistoryItemComponent {
     rejectOrder() : void {
         if(this.order.id) {
             this.orderService.rejectOrder(this.order.id);
+        }
+    }
+
+    ngOnDestroy() {
+        if(this.orderSubscription){
+            this.orderSubscription.unsubscribe();
         }
     }
 
