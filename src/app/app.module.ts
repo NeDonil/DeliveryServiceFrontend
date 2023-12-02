@@ -58,6 +58,9 @@ import { AddressCreateComponent } from './component/customer/dialogs/address-dia
 import { EmployeeCommentComponent } from './component/common/employee-comment/employee-comment.component';
 import {WebsocketService} from "./service/websocket.service";
 import {WebsocketConfig} from "./config/websocket.config";
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { StatusColumnComponent } from './component/dashboard/status-column/status-column.component';
+import { ColumnItemComponent } from './component/dashboard/status-column/column-item/column-item.component';
 
 registerLocaleData(localeRu);
 
@@ -86,7 +89,10 @@ registerLocaleData(localeRu);
     HistoryItemComponent,
     AddressDialogComponent,
     AddressCreateComponent,
-    EmployeeCommentComponent
+    EmployeeCommentComponent,
+    DashboardComponent,
+    StatusColumnComponent,
+    ColumnItemComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,

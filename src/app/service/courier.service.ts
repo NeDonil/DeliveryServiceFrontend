@@ -35,7 +35,7 @@ export class CourierService {
 
     takeOrder(order: Order) : void {
         this.websocketService.watch("/order/" + order.id)
-            .subscribe((msg) => {
+            .subscribe(() => {
                 this.currentOrder.next(order);
                 this.currentState.next(4);
             });
@@ -44,7 +44,7 @@ export class CourierService {
 
     makeDelivered(order: Order): void {
         this.websocketService.watch("/order/" + order.id)
-            .subscribe((msg) => {
+            .subscribe(() => {
                 this.currentOrder.next(order);
                 this.currentState.next(3);
             });

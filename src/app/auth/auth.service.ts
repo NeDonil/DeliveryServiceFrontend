@@ -56,6 +56,12 @@ export class AuthService {
         }).length != 0;
     }
 
+    isAdmin(): boolean {
+        return this.LoggedUser.authorities.filter((auth: Authority) => {
+            return auth.authority == ROLE.ADMIN;
+        }).length != 0;
+    }
+
     static checkAuthUser(auth: CredentialResponse, role: string): boolean {
         let access = false;
         if (auth != null && auth.authorities !== null) {
@@ -96,7 +102,10 @@ export class AuthService {
                 this.router.navigate(['assembler']);
             } else if(this.isCourier()){
                 this.router.navigate(['courier']);
+            }else if(this.isAdmin()){
+                this.router.navigate(['dashboard']);
             }
+
             return true;
         }
         else {
