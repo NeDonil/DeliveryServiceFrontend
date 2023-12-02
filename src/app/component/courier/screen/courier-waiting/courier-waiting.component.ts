@@ -5,7 +5,7 @@ import { CourierService } from 'src/app/service/courier.service';
 
 @Component({
   selector: 'app-courier-waiting',
-  templateUrl: './courier-waiting.component.html' 
+  templateUrl: './courier-waiting.component.html'
 })
 export class CourierWaitingComponent implements OnInit, OnDestroy{
     orders : Array<Order> | undefined;
@@ -13,14 +13,27 @@ export class CourierWaitingComponent implements OnInit, OnDestroy{
 
     constructor(private courierService : CourierService) {}
     ngOnInit() : void {
-        this.ordersSubscription = this.courierService
+        this.courierService
             .getOrders()
-            .subscribe( (data) => this.orders = data );
+            .subscribe((data) => {
+                this.orders = data;
+                this.ordersSubscription = this.courierService.getOrdersSubscription()
+                    .subscribe((msg) => this.updateOrders(JSON.parse(msg.body)))
+            });
+    }
 
+    updateOrders(msg : any) : void {
+        if(msg.code == "TO_ASSEMBLED"){
+            this.orders?.push(msg.order);
+        } else {
+            this.orders = this.orders?.filter(el => {
+                return el.id !== msg.order.id;
+            });
+        }
     }
 
     onTakeOrder(order: Order){
-        this.courierService.takeOrder(order).subscribe(() => console.log("Take order: " + order.id + " success"));
+        this.courierService.takeOrder(order);
     }
 
     ngOnDestroy(): void {

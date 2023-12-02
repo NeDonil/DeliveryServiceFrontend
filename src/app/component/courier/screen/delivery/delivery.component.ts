@@ -13,8 +13,7 @@ export class DeliveryComponent {
 
     onOrderDeliveredPress() : void {
         if(this.order){
-            this.courierService.makeDelivered(this.order)
-                .subscribe( (data) => console.log("Order has been delivered"));
+            this.courierService.makeDelivered(this.order);
         }
     }
 }

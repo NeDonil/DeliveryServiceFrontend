@@ -28,7 +28,6 @@ export class WaitingComponent implements OnInit, OnDestroy {
     }
 
     updateOrders(msg : any) : void {
-        console.log(msg)
         if(msg.code == "MAKE"){
             this.orders?.push(msg.order);
         } else {
