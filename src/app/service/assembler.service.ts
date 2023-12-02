@@ -13,10 +13,11 @@ import {ORDER_ACTION} from "../model/OrderAction";
 export class AssemblerService {
 
     private currentState = new BehaviorSubject<number>(1);
-    private assemblerUrl : string = "api/assembler/";
+    private assemblerUrl : string = "/api/assembler/";
     private currentOrder =  new BehaviorSubject<Order | undefined>(undefined);
 
-    constructor(private http: HttpClient, private websocketService : WebsocketService) { }
+    constructor(private http: HttpClient,
+                private websocketService : WebsocketService) { }
 
     getOrders() : Observable<Order[]> {
         return this.http.get<Order[]>(this.assemblerUrl + "order");

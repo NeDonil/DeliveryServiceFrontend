@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Order } from '../model/Order';
 import { HttpClient } from '@angular/common/http';
+import {WebsocketService} from "./websocket.service";
+import {ORDER_ACTION} from "../model/OrderAction";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class CourierService {
 
     private currentState = new BehaviorSubject<number>(3);
-    private courierUrl : string = "api/courier/";
+    private courierUrl : string = "/api/courier/";
     private currentOrder =  new BehaviorSubject<Order | undefined>(undefined);
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+                private websocketService: WebsocketService) { }
 
     getOrders() : Observable<Order[]> {
         return this.http.get<Order[]>(this.courierUrl + "order");
@@ -22,25 +25,29 @@ export class CourierService {
         return this.currentOrder;
     }
 
+    getOrdersSubscription(): Observable<any>{
+        return this.websocketService.watch("/order/assembled");
+    }
+
     getCurrentState() : BehaviorSubject<number>{
         return this.currentState;
     }
 
-    takeOrder(order: Order) : Observable<Object | undefined> {
-        return this.http.get(this.courierUrl + "order/" + order.id + "/action/TO_DELIVERY")
-            .pipe( (data) => {
+    takeOrder(order: Order) : void {
+        this.websocketService.watch("/order/" + order.id)
+            .subscribe((msg) => {
                 this.currentOrder.next(order);
                 this.currentState.next(4);
-                return data;
             });
+        this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION.TO_DELIVERY});
     }
 
-    makeDelivered(order: Order): Observable<Object> {
-        return this.http.get(this.courierUrl + "order/" + order.id + "/action/TO_DELIVERED")
-            .pipe( (data) => {
+    makeDelivered(order: Order): void {
+        this.websocketService.watch("/order/" + order.id)
+            .subscribe((msg) => {
                 this.currentOrder.next(order);
                 this.currentState.next(3);
-                return data;
             });
+        this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION.TO_DELIVERED});
     }
 }
