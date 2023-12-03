@@ -7,6 +7,7 @@ import { AssemblerComponent } from './component/assembler/assembler.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { CourierComponent } from './component/courier/courier.component';
 import {DashboardComponent} from "./component/dashboard/dashboard.component";
+import {RegisterComponent} from "./component/register/register.component";
 
 const routes: Routes = [
     {
@@ -21,6 +22,10 @@ const routes: Routes = [
     {
         path: "login",
         component : LoginComponent
+    },
+    {
+        path: "register",
+        component : RegisterComponent
     },
     {
         path: "customer",

@@ -8,6 +8,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { ROLE } from './role';
 import { CredentialResponse } from './model/auth/credentialResponse';
 import { Authority } from './model/auth/authority';
+import {NewUser} from "./new-user";
 
 @Injectable({
     providedIn: 'root'
@@ -127,13 +128,17 @@ export class AuthService {
         });
     }
 
+    register(user: NewUser) : Observable<NewUser> {
+        return this.http.post<NewUser>('api/register', user);
+    }
+
     logoutWithoutRedirect(){
         //Todo
     }
 
     clearLoginData() {
-        this.loggedIn.next(false);
         this.sessionStorage.remove('auth');
+        this.loggedIn.next(false);
     }
 
     authentication(headers: any): Observable<any> {
