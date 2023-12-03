@@ -26,6 +26,10 @@ export class AssemblyComponent implements OnInit {
         }
     }
 
+    rejectOrder() : void {
+
+    }
+
     ngOnInit() : void {
         if(this.order){
             this.order.items?.forEach((el) => {

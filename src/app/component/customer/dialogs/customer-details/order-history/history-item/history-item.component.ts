@@ -3,6 +3,7 @@ import {Order} from "../../../../../../model/Order";
 import {ORDER_STATUS, ORDER_STATUS_MAPPER} from "../../../../../../model/OrderStatus";
 import {min, Subscription} from "rxjs";
 import {OrderService} from "../../../../../../service/order.service";
+import {ORDER_ACTION, ORDER_ACTION_MAPPER} from "../../../../../../model/OrderAction";
 
 @Component({
   selector: 'app-history-item',
@@ -20,7 +21,7 @@ export class HistoryItemComponent  implements OnInit, OnDestroy{
             this.orderSubscription = this.orderService.getOrderSubscription(this.order.id)
                 .subscribe((msg) => {
                     const orderMessage = JSON.parse(msg.body);
-                    if(orderMessage.code == "REFUSE"){
+                    if(orderMessage.code == "REJECT"){ //TODO replace with mapper
                         this.order.status = ORDER_STATUS.REJECTED;
                     }
                 })

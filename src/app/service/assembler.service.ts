@@ -53,6 +53,10 @@ export class AssemblerService {
         this.websocketService.publish({destination: "/assembler/order/" + order.id, body : ORDER_ACTION.TO_ASSEMBLY});
     }
 
+    rejectOrder(id: number) : void {
+        this.websocketService.publish({destination: "/assembler/order/" + id, body : ORDER_ACTION.ASSEMBLER_REFUSE});
+    }
+
     makeAssembled(order: Order): void {
         this.websocketService.watch("/order/" + order.id)
             .subscribe(() => {

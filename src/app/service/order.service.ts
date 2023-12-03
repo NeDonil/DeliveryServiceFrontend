@@ -125,7 +125,7 @@ export class OrderService {
             this.getCurrentOrder()
                 .subscribe((data) => console.log("Reject from order " + data.id));
         });
-        this.websocketService.publish({destination : "/customer/order/" + id, body: ORDER_ACTION.REFUSE});
+        this.websocketService.publish({destination : "/customer/order/" + id, body: ORDER_ACTION.REJECT});
     }
 
     getCurrentOrder(): Observable<Order>{
