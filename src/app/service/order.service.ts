@@ -1,14 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, Observer} from 'rxjs';
-import { Group } from '../model/Group';
+import {BehaviorSubject, Observable} from 'rxjs';
 import { Product } from '../model/Product';
 import { Order } from '../model/Order';
 import { OrderItem } from '../model/OrderItem';
 import { Address } from '../model/Address';
 import {WebsocketService} from "./websocket.service";
 import {ORDER_ACTION_REQUEST} from "../model/OrderAction";
-import {IMessage} from "@stomp/rx-stomp";
 
 @Injectable({
     providedIn: 'root'
