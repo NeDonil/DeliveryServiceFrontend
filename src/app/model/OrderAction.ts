@@ -1,6 +1,6 @@
 import {ORDER_STATUS} from "./OrderStatus";
 
-export enum ORDER_ACTION {
+export enum ORDER_ACTION_REQUEST {
     MAKE = '0',
     REJECT = '1',
     ASSEMBLER_REFUSE = '2',
@@ -9,6 +9,17 @@ export enum ORDER_ACTION {
     TO_ASSEMBLED = '5',
     TO_DELIVERY = '6',
     TO_DELIVERED = '7'
+}
+
+export enum ORDER_ACTION_RESPONSE {
+    MAKE = 'MAKE',
+    REJECT = 'REJECT',
+    ASSEMBLER_REFUSE = 'ASSEMBLER_REFUSE',
+    COURIER_REFUSE = 'COURIER_REFUSE',
+    TO_ASSEMBLY = 'TO_ASSEMBLY',
+    TO_ASSEMBLED = 'TO_ASSEMBLED',
+    TO_DELIVERY = 'TO_DELIVERY',
+    TO_DELIVERED = 'TO_DELIVERED'
 }
 
 export const ORDER_ACTION_MAPPER : {[char: string]: string} = {

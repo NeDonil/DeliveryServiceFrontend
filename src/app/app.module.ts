@@ -61,6 +61,7 @@ import {WebsocketConfig} from "./config/websocket.config";
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { StatusColumnComponent } from './component/dashboard/status-column/status-column.component';
 import { ColumnItemComponent } from './component/dashboard/status-column/column-item/column-item.component';
+import { RejectComponent } from './component/assembler/screen/reject/reject.component';
 
 registerLocaleData(localeRu);
 
@@ -92,7 +93,8 @@ registerLocaleData(localeRu);
     EmployeeCommentComponent,
     DashboardComponent,
     StatusColumnComponent,
-    ColumnItemComponent
+    ColumnItemComponent,
+    RejectComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,

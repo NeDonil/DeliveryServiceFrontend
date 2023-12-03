@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {Order} from '../model/Order';
 import {HttpClient} from '@angular/common/http';
 import {WebsocketService} from "./websocket.service";
-import {ORDER_ACTION} from "../model/OrderAction";
+import {ORDER_ACTION_REQUEST} from "../model/OrderAction";
 import {ORDER_STATUS} from "../model/OrderStatus";
 import {OrderWithStatus} from "../model/OrderWithStatus";
 
@@ -48,7 +48,7 @@ export class CourierService {
                 this.currentOrder.next(order);
                 this.currentState.next(ORDER_STATUS.DELIVERING);
             });
-        this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION.TO_DELIVERY});
+        this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION_REQUEST.TO_DELIVERY});
     }
 
     makeDelivered(order: Order): void {
@@ -57,6 +57,6 @@ export class CourierService {
                 this.currentOrder.next(order);
                 this.currentState.next(ORDER_STATUS.ASSEMBLED);
             });
-        this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION.TO_DELIVERED});
+        this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION_REQUEST.TO_DELIVERED});
     }
 }
