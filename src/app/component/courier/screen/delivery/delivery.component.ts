@@ -16,4 +16,10 @@ export class DeliveryComponent {
             this.courierService.makeDelivered(this.order);
         }
     }
+
+    rejectOrder() : void {
+        if(this.order?.id) {
+            this.courierService.rejectOrder(this.order.id)
+        }
+    }
 }

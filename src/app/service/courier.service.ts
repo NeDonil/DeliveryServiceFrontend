@@ -69,6 +69,17 @@ export class CourierService {
         this.websocketService.publish({destination: "/courier/order/" + order.id, body : ORDER_ACTION_REQUEST.TO_DELIVERY});
     }
 
+    rejectOrder(id: number) : void {
+        this.websocketService.publish({destination: "/courier/order/" + id, body : ORDER_ACTION_REQUEST.COURIER_REFUSE});
+        setTimeout(() => {
+            this.currentState.next(ORDER_STATUS.ASSEMBLED);
+            this.currentOrder.next(undefined);
+            if(this.currentOrderSubscription){
+                this.currentOrderSubscription.unsubscribe();
+            }
+        }, 400);
+    }
+
     makeDelivered(order: Order): void {
         this.websocketService.watch("/order/" + order.id)
             .subscribe(() => {
