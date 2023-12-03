@@ -1,15 +1,27 @@
-<div mat-dialog-content style="display:grid; padding: 0px; margin: auto; width:33%; font-family: Roboto Condensed;">
-    <h1 mat-dialog-title align="center">Login Page</h1>
-    <mat-form-field class="full-width-input">
-        <input matInput type="text" placeholder="Username" [(ngModel)]="credential.email" required>
-    </mat-form-field>
-
-    <mat-form-field class="full-width-input">
-        <input matInput type="password" placeholder="Password" [(ngModel)]="credential.password" required>
-    </mat-form-field>
-
-    <div *ngIf="errorAuth" style="margin-bottom: 25px; color: red">
-        Wrong username or password
+<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 *ngIf="!errorAuth" class="text-xl pretty-font font-semibold leading-tight tracking-tight text-gray-700 md:text-2xl">
+                Войдите в аккаунт
+            </h1>
+            <h1 *ngIf="errorAuth" class="text-xl pretty-font font-semibold leading-tight tracking-tight text-red-600 md:text-2xl">
+                Ошибка входа
+            </h1>
+            <form class="space-y-4 md:space-y-6" action="#">
+                <div>
+                    <label for="email" class="pretty-font block mb-2 text-sm font-medium text-gray-900">Email</label>
+                    <input [(ngModel)]="credential.email"type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-700 sm:text-sm rounded-xl block w-full p-2.5" placeholder="name@email.com">
+                </div>
+                <div>
+                    <label for="password" class="pretty-font block mb-2 text-sm font-medium text-gray-700">Пароль</label>
+                    <input [(ngModel)]="credential.password" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-xl focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
+                </div>
+                <button (click)="login()" type="submit" class="w-full pretty-font bg-pink-500 font-semibold text-gray-900 rounded-xl text-sm px-5 py-2.5 text-center">Войти</button>
+                <p class="pretty-font text-sm font-medium text-gray-700">
+                    Еще не зарегистрированы? <a href="register" class="font-bold text-primary-600 hover:underline">Зарегистрироваться</a>
+                </p>
+            </form>
+        </div>
     </div>
-    <button mat-flat-button color="accent" (click)="login()">Log in</button>    
 </div>
+
