@@ -1,5 +1,5 @@
 <div class="rounded-xl bg-slate-200 hover:bg-slate-300 flex h-full">
-    <button class="w-full p-5" (click)="selected = true">
+    <button class="w-full p-5" (click)="selected = !selected">
         <p class="w-3/4 pretty-font text-2xl ali font-semibold text-gray-700 text-left">
             {{order.address?.value}}
         </p>
@@ -8,14 +8,9 @@
             <p class="pretty-font text-xl font-semibold text-gray-400 text-right">{{this.order.beginDate | date:'hh:mm'}}</p>
         </div>
     </button>
-    <div *ngIf="selected" class="flex my-auto h-full p-3">
-        <button class="px-8 bg-purple-400 min-h-full rounded-xl" (click)="onTakePressed()">
-            <p class="pretty-font text-xl font-semibold">Собрать</p>
-        </button>
-    </div>
-    <div *ngIf="selected" class="flex my-auto h-full p-3">
-        <button class="px-8 bg-pink-400 min-h-full rounded-xl" (click)="selected=false">
-            <p class="pretty-font text-xl font-semibold">x</p>
+    <div *ngIf="selected" class="flex my-auto p-3">
+        <button class="px-8 bg-gray-400 h-20 rounded-xl" (click)="onTakePressed()">
+            <span class="pretty-font text-xl font-bold text-gray-700">Собрать</span>
         </button>
     </div>
 </div>

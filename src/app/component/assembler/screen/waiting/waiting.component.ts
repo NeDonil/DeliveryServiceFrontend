@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Order} from 'src/app/model/Order';
 import {AssemblerService} from 'src/app/service/assembler.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-waiting',
@@ -13,7 +14,8 @@ export class WaitingComponent implements OnInit, OnDestroy {
     orders : Array<Order> | undefined;
     ordersSubscription : Subscription | undefined;
 
-    constructor(private assemblerService : AssemblerService) {}
+    constructor(private assemblerService : AssemblerService,
+                private router: Router) {}
     ngOnInit() : void {
         this.assemblerService
             .getOrders()
@@ -37,6 +39,10 @@ export class WaitingComponent implements OnInit, OnDestroy {
 
     onTakeOrder(order: Order){
         this.assemblerService.takeOrder(order);
+    }
+
+    onLogoutClick() : void {
+        this.router.navigate(['/logout']);
     }
 
     ngOnDestroy(): void {

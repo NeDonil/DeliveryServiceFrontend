@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Order } from 'src/app/model/Order';
 import { CourierService } from 'src/app/service/courier.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-courier-waiting',
@@ -11,7 +12,8 @@ export class CourierWaitingComponent implements OnInit, OnDestroy{
     orders : Array<Order> | undefined;
     ordersSubscription : Subscription | undefined;
 
-    constructor(private courierService : CourierService) {}
+    constructor(private courierService : CourierService,
+                private router: Router) {}
     ngOnInit() : void {
         this.courierService
             .getOrders()
@@ -34,6 +36,10 @@ export class CourierWaitingComponent implements OnInit, OnDestroy{
 
     onTakeOrder(order: Order){
         this.courierService.takeOrder(order);
+    }
+
+    onLogoutClick() : void {
+        this.router.navigate(['/logout']);
     }
 
     ngOnDestroy(): void {

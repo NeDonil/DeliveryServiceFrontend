@@ -3,14 +3,13 @@ import { Order } from 'src/app/model/Order';
 
 @Component({
   selector: 'app-assembler-order',
-  templateUrl: './assembler-order.component.html' 
+  templateUrl: './assembler-order.component.html'
 })
 export class AssemblerOrderComponent implements OnInit {
     @Input() order !: Order;
     @Output() takeOrder = new EventEmitter();
 
     itemsCount : number = 0;
-    timeDiff : number = 0;
     selected : boolean = false;
 
     ngOnInit(): void {
@@ -24,7 +23,7 @@ export class AssemblerOrderComponent implements OnInit {
     }
 
     onTakePressed(){
-        
+
         if(this.order){
             this.takeOrder.emit(this.order);
         }

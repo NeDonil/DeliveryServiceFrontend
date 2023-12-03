@@ -10,8 +10,8 @@
         </div>
     </button>
     <div *ngIf="selected" class="flex my-auto h-full p-3">
-        <button class="px-8 bg-gray-300 min-h-full rounded-xl" (click)="onTakePressed()">
-            <p class="pretty-font text-xl font-semibold">Взять</p>
+        <button class="px-8 bg-gray-300 h-20 rounded-xl" (click)="selected = ! selected">
+            <span class="pretty-font text-xl font-bold text-gray-700">Собрать</span>
         </button>
     </div>
 </div>
