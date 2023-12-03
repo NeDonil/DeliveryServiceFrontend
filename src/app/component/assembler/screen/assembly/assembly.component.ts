@@ -17,7 +17,6 @@ export class AssemblyComponent implements OnInit {
 
     addOneProduct() : void {
         this.totalProductAssembled += 1;
-        console.log(this.totalProductAssembled);
     }
 
     assembledClicked() : void {
@@ -27,7 +26,9 @@ export class AssemblyComponent implements OnInit {
     }
 
     rejectOrder() : void {
-
+        if(this.order?.id) {
+            this.assemblerService.rejectOrder(this.order.id)
+        }
     }
 
     ngOnInit() : void {
