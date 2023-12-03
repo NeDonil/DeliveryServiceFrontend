@@ -1,7 +1,7 @@
 <div class="flex-col bg-white rounded-3xl justify-between">
     <app-address class="max-w-full"></app-address>
     <app-comment class="max-w-full" [comment]="currentOrder?.comment"></app-comment>
-    <div class="mx-4 divide-y divide-solid overflow-y-scroll no-scrollbar max-h-full h-[36em]">
+    <div class="mx-4 divide-y divide-solid overflow-y-scroll no-scrollbar max-h-full h-[5rem] xl:h-[25em] 2xl:h-[36em]">
         <app-order-item class="max-w-sm" *ngFor="let item of currentOrder?.items" [orderItem]="item"></app-order-item>
     </div>
     <div class="max-w-full">
