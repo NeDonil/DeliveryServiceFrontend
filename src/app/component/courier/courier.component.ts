@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Order } from 'src/app/model/Order';
 import { CourierService } from 'src/app/service/courier.service';
+import {ORDER_STATUS} from "../../model/OrderStatus";
 
 @Component({
   selector: 'app-courier',
@@ -10,7 +11,7 @@ import { CourierService } from 'src/app/service/courier.service';
 export class CourierComponent implements OnInit{
     currentOrder : Order | undefined;
 
-    currentState: number = 3;
+    currentState: ORDER_STATUS = ORDER_STATUS.ASSEMBLED;
     currentStateSubscription = new Subscription;
 
     constructor(private courierService: CourierService){}
@@ -24,4 +25,6 @@ export class CourierComponent implements OnInit{
             .getCurrentState()
             .subscribe( (data) => this.currentState = data);
     }
+
+    protected readonly ORDER_STATUS = ORDER_STATUS;
 }
