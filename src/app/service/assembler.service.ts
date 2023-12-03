@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Order } from '../model/Order';
-import { Product } from '../model/Product';
 import {WebsocketService} from "./websocket.service";
-import {OrderMessage} from "../message/OrderMessage";
 import {ORDER_ACTION} from "../model/OrderAction";
 
 @Injectable({
@@ -37,7 +35,7 @@ export class AssemblerService {
 
     takeOrder(order : Order) : void {
         this.websocketService.watch("/order/" + order.id)
-            .subscribe((msg) => {
+            .subscribe(() => {
                 this.currentOrder.next(order);
                 this.currentState.next(2);
             });
@@ -46,7 +44,7 @@ export class AssemblerService {
 
     makeAssembled(order: Order): void {
         this.websocketService.watch("/order/" + order.id)
-            .subscribe((msg) => {
+            .subscribe(() => {
                 this.currentOrder.next(order);
                 this.currentState.next(1);
             });
