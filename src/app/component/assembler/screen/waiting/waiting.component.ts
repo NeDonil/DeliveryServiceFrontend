@@ -17,8 +17,7 @@ export class WaitingComponent implements OnInit, OnDestroy {
     constructor(private assemblerService : AssemblerService,
                 private router: Router) {}
     ngOnInit() : void {
-        this.assemblerService
-            .getOrders()
+        this.assemblerService.getOrders()
             .subscribe( (data) => {
                 this.orders = data;
                 this.ordersSubscription = this.assemblerService.getOrdersSubscription()

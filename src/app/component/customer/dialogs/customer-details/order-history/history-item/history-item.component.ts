@@ -1,8 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Order} from "../../../../../../model/Order";
 import {ORDER_STATUS, ORDER_STATUS_MAPPER} from "../../../../../../model/OrderStatus";
-import {min, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {OrderService} from "../../../../../../service/order.service";
+import {ORDER_ACTION_MAPPER} from "../../../../../../model/OrderAction";
 
 @Component({
   selector: 'app-history-item',
@@ -20,9 +21,7 @@ export class HistoryItemComponent  implements OnInit, OnDestroy{
             this.orderSubscription = this.orderService.getOrderSubscription(this.order.id)
                 .subscribe((msg) => {
                     const orderMessage = JSON.parse(msg.body);
-                    if(orderMessage.code == "REFUSE"){
-                        this.order.status = ORDER_STATUS.REJECTED;
-                    }
+                    this.order.status = ORDER_ACTION_MAPPER[orderMessage.code];
                 })
         }
     }
@@ -48,7 +47,7 @@ export class HistoryItemComponent  implements OnInit, OnDestroy{
                 new Date(this.order.beginDate).getTime()
             ) / (1000 * 60));
 
-            let form = ''
+            let form;
             if( ( (minutes > 5) && (minutes <= 20) ) ) form = ' минут';
             else if( (minutes % 10) == 1) form = ' минуту';
             else if( (minutes % 10) > 1 && (minutes % 10) < 5) form = ' минуты';

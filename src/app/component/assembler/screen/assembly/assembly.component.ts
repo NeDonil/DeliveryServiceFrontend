@@ -17,12 +17,17 @@ export class AssemblyComponent implements OnInit {
 
     addOneProduct() : void {
         this.totalProductAssembled += 1;
-        console.log(this.totalProductAssembled);
     }
 
     assembledClicked() : void {
         if(this.order && this.order){
             this.assemblerService.makeAssembled(this.order);
+        }
+    }
+
+    rejectOrder() : void {
+        if(this.order?.id) {
+            this.assemblerService.rejectOrder(this.order.id)
         }
     }
 

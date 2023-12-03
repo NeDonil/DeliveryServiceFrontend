@@ -2,5 +2,6 @@
     <div class="flex mx-auto overflow-y-scroll no-scrollbar justify-between max-w-screen-md h-full bg-white rounded-2xl" [ngSwitch]="currentState">
         <app-waiting *ngSwitchCase="ORDER_STATUS.PLACED" class="w-full h-full"></app-waiting>
         <app-assembly *ngSwitchCase="ORDER_STATUS.ASSEMBLING"  [order]="currentOrder" class="w-full h-full"></app-assembly>
+        <app-reject *ngSwitchCase="ORDER_STATUS.REJECTED" class="w-full h-full"></app-reject>
     </div>
 </div>
