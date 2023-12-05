@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     ngOnInit(){
         this.authService.clearLoginData();
         this.credential = new Credential();
-        this.authService.logoutWithoutRedirect();
     }
 
     login(){
