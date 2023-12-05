@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {OrderWithEmployee} from "../model/OrderWithEmployee";
 import {IMessage} from "@stomp/rx-stomp";
 import {ADMIN_STATE} from "../component/admin/admin.state";
+import {EmployeeCreate} from "../model/EmployeeCreate";
 
 @Injectable({
     providedIn: 'root'
@@ -26,9 +27,16 @@ export class AdminService {
     getCurrentState() : BehaviorSubject<ADMIN_STATE> {
         return this.currentState;
     }
-
     subscribeToOrders(status: string): Observable<IMessage> {
         return this.websocketService.watch("/order/" + status);
+    }
+
+    createAssembler(employee: EmployeeCreate) : Observable<any> {
+        return this.http.post<any>(this.adminUrl + "/assembler", employee);
+    }
+
+    createCourier(employee: EmployeeCreate) : Observable<any> {
+        return this.http.post<any>(this.adminUrl + "/courier", employee);
     }
 
 }

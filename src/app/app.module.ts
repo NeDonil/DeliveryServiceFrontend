@@ -66,6 +66,7 @@ import { CourierRejectComponent } from "./component/courier/screen/reject/courie
 import { RegisterComponent } from './component/register/register.component';
 import { AdminComponent } from './component/admin/admin.component';
 import { AdminMainScreenComponent } from './component/admin/screen/main-screen/admin-main-screen.component';
+import { AddEmployeeComponent } from './component/admin/screen/add-employee/add-employee.component';
 
 registerLocaleData(localeRu);
 
@@ -102,7 +103,8 @@ registerLocaleData(localeRu);
     CourierRejectComponent,
     RegisterComponent,
     AdminComponent,
-    AdminMainScreenComponent
+    AdminMainScreenComponent,
+    AddEmployeeComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,

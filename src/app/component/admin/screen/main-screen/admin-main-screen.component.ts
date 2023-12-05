@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AuthService} from "../../../../auth/auth.service";
 import {ADMIN_STATE} from "../../admin.state";
 import {AdminService} from "../../../../service/admin.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'admin-main-screen',
@@ -9,10 +10,10 @@ import {AdminService} from "../../../../service/admin.service";
 })
 export class AdminMainScreenComponent {
 
-    constructor(private authService: AuthService,
-                private adminService: AdminService) {}
+    constructor(private adminService: AdminService,
+                private router : Router) {}
     onLogoutClick() : void {
-        this.authService.logout();
+        this.router.navigate(['logout']);
     }
 
     onPressed(state: ADMIN_STATE) : void {
