@@ -64,6 +64,8 @@ import { ColumnItemComponent } from './component/dashboard/status-column/column-
 import { RejectComponent } from './component/assembler/screen/reject/reject.component';
 import { CourierRejectComponent } from "./component/courier/screen/reject/courier-reject.component";
 import { RegisterComponent } from './component/register/register.component';
+import { AdminComponent } from './component/admin/admin.component';
+import { AdminMainScreenComponent } from './component/admin/screen/main-screen/admin-main-screen.component';
 
 registerLocaleData(localeRu);
 
@@ -98,7 +100,9 @@ registerLocaleData(localeRu);
     ColumnItemComponent,
     RejectComponent,
     CourierRejectComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent,
+    AdminMainScreenComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,

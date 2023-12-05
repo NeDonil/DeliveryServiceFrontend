@@ -1,0 +1,6 @@
+
+export enum ADMIN_STATE{
+    MAIN,
+    ADD_EMPLOYEE,
+    CHANGE_ORDER_STATUS
+}
