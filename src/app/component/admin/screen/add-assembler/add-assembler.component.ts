@@ -4,12 +4,12 @@ import {ADMIN_STATE} from "../../admin.state";
 import {EmployeeCreate, EmployeeType} from "../../../../model/EmployeeCreate";
 
 @Component({
-  selector: 'admin-add-employee-screen',
-  templateUrl: 'add-employee.component.html'
+  selector: 'admin-add-assembler-screen',
+  templateUrl: 'add-assembler.component.html'
 })
-export class AddEmployeeComponent {
+export class AddAssemblerComponent {
 
-    employee = new EmployeeCreate();
+    assembler = new EmployeeCreate();
     success !: boolean;
     constructor(private adminService: AdminService) {
     }
@@ -17,16 +17,14 @@ export class AddEmployeeComponent {
         this.adminService.setCurrentState(ADMIN_STATE.MAIN);
     }
 
-    onEmployeeCreate() : void { // Todo: also for courier
-        this.adminService.createAssembler(this.employee)
+    onAssemblerCreate() : void {
+        this.adminService.createAssembler(this.assembler)
             .subscribe( (res) => {
                 this.success = true;
             }, (e) =>{
                 this.success = false;
             });
 
-        this.employee = new EmployeeCreate();
+        this.assembler = new EmployeeCreate();
     }
-
-    protected readonly EmployeeType = EmployeeType;
 }

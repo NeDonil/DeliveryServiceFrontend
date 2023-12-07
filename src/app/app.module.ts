@@ -66,7 +66,8 @@ import { CourierRejectComponent } from "./component/courier/screen/reject/courie
 import { RegisterComponent } from './component/register/register.component';
 import { AdminComponent } from './component/admin/admin.component';
 import { AdminMainScreenComponent } from './component/admin/screen/main-screen/admin-main-screen.component';
-import { AddEmployeeComponent } from './component/admin/screen/add-employee/add-employee.component';
+import { AddAssemblerComponent } from './component/admin/screen/add-assembler/add-assembler.component';
+import { AddCourierComponent } from './component/admin/screen/add-courier/add-courier.component';
 
 registerLocaleData(localeRu);
 
@@ -104,7 +105,8 @@ registerLocaleData(localeRu);
     RegisterComponent,
     AdminComponent,
     AdminMainScreenComponent,
-    AddEmployeeComponent
+    AddAssemblerComponent,
+    AddCourierComponent
   ],
     imports: [
         BrowserModule, AppRoutingModule, BrowserAnimationsModule,
