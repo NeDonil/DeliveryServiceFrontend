@@ -94,7 +94,7 @@ export class AuthService {
     private responseProcessing(data: any, failureHandler: any) {
         const response: CredentialResponse = CredentialResponse.convertToObj(data);
 
-        if(response.authenticated == true) {
+        if(response.authenticated) {
             this.updateAuth(response);
             this.loggedIn.next(true);
             if(this.isCustomer()){
@@ -104,7 +104,7 @@ export class AuthService {
             } else if(this.isCourier()){
                 this.router.navigate(['courier']);
             }else if(this.isAdmin()){
-                this.router.navigate(['dashboard']);
+                this.router.navigate(['admin']);
             }
 
             return true;

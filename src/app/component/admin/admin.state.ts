@@ -1,0 +1,7 @@
+
+export enum ADMIN_STATE{
+    MAIN,
+    ADD_ASSEMBLER,
+    ADD_COURIER,
+    CHANGE_ORDER_STATUS
+}

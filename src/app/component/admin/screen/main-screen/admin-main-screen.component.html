@@ -1,0 +1,28 @@
+<div class="py-10 w-full h-full px-5">
+    <div>
+        <p class="pretty-font font-semibold text-xl md:text-3xl text-gray-700 text-center">Админ</p>
+        <div class="flex justify-between">
+            <p class="pretty-font font-semibold text-xl md:text-5xl text-gray-700">Выберите действие</p>
+            <button (click)="onLogoutClick()">
+                <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path stroke="#404040" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12h-9.5m7.5 3l3-3-3-3m-5-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h5a2 2 0 002-2v-1"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="grid gap-2 pt-10">
+        <button class="rounded-xl bg-slate-200 hover:bg-slate-300 p-5" (click)="onPressed(ADMIN_STATE.ADD_ASSEMBLER)">
+            <span class="pretty-font text-gray-700 text-2xl font-bold">Добавить сборщика</span>
+        </button>
+        <button class="rounded-xl bg-slate-200 hover:bg-slate-300 p-5" (click)="onPressed(ADMIN_STATE.ADD_COURIER)">
+            <span class="pretty-font text-gray-700 text-2xl font-bold">Добавить курьера</span>
+        </button>
+        <button class="rounded-xl bg-slate-200 hover:bg-slate-300 p-5" (click)="onPressed(ADMIN_STATE.CHANGE_ORDER_STATUS)">
+            <span class="pretty-font text-gray-700 text-2xl font-bold">Изменить статус заказа</span>
+        </button>
+        <button class="rounded-xl bg-slate-200 hover:bg-slate-300 p-5" (click)="onDashboardPressed()">
+            <span class="pretty-font text-gray-700 text-2xl font-bold">Дашборд</span>
+        </button>
+    </div>
+</div>

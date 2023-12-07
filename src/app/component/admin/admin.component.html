@@ -1,0 +1,7 @@
+<div class="h-full">
+    <div class="flex mx-auto overflow-y-scroll no-scrollbar justify-between max-w-screen-md h-full bg-white rounded-2xl" [ngSwitch]="currentState">
+        <admin-main-screen *ngSwitchCase="ADMIN_STATE.MAIN" class="w-full h-full"></admin-main-screen>
+        <admin-add-assembler-screen *ngSwitchCase="ADMIN_STATE.ADD_ASSEMBLER" class="w-full h-full"></admin-add-assembler-screen>
+        <admin-add-courier-screen *ngSwitchCase="ADMIN_STATE.ADD_COURIER" class="w-full h-full"></admin-add-courier-screen>-->
+    </div>
+</div>

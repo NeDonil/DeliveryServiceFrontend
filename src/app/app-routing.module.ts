@@ -8,6 +8,8 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { CourierComponent } from './component/courier/courier.component';
 import {DashboardComponent} from "./component/dashboard/dashboard.component";
 import {RegisterComponent} from "./component/register/register.component";
+import {AdminComponent} from "./component/admin/admin.component";
+import {ROLE} from "./auth/role";
 
 const routes: Routes = [
     {
@@ -30,22 +32,32 @@ const routes: Routes = [
     {
         path: "customer",
         component : CustomerComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data : {role : ROLE.CUSTOMER}
     },
     {
         path: "assembler",
         component : AssemblerComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data : {role : ROLE.ASSEMBLER}
     },
     {
         path: "courier",
         component : CourierComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data : {role : ROLE.COURIER}
+    },
+    {
+        path: "admin",
+        component : AdminComponent,
+        canActivate: [AuthGuard],
+        data : {role : ROLE.ADMIN}
     },
     {
         path: "dashboard",
         component : DashboardComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data : {role : ROLE.ADMIN}
     },
 ];
 
