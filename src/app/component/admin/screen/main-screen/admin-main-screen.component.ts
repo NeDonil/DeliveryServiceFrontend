@@ -20,5 +20,9 @@ export class AdminMainScreenComponent {
         this.adminService.setCurrentState(state);
     }
 
+    onDashboardPressed() : void {
+        this.router.navigate(['dashboard']);
+    }
+
     protected readonly ADMIN_STATE = ADMIN_STATE;
 }
