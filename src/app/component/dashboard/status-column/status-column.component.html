@@ -1,8 +1,12 @@
 
-<div class="mr-2">
+<div cdkDropList [cdkDropListData]="orders" (cdkDropListDropped)="drop($event)" class="mr-2 h-full">
     <p class="pretty-font text-gray-700 font-bold text-3xl">{{title}}</p>
     <p class="pretty-font text-gray-700 font-semibold text-xl">{{legend}}: {{orders ? orders.length : 0}}</p>
     <div class="grid grid-cols-1 gap-3">
-        <app-column-item *ngFor="let order of orders" [order]="order"></app-column-item>
+        <div *ngFor="let order of orders">
+            <app-column-item cdkDrag [order]="order">
+                <div *cdkDragPlaceholder class=" min-h-[5rem] bg-white rounded-xl border-4 border-dotted"></div>
+            </app-column-item>
+        </div>
     </div>
 </div>
