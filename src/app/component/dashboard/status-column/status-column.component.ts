@@ -20,7 +20,6 @@ export class StatusColumnComponent implements OnInit, OnDestroy{
     constructor(private adminService: AdminService) {
     }
 
-
     ngOnInit() : void {
         this.adminService.getOrdersByStatus(this.status)
             .subscribe( (data) => {
