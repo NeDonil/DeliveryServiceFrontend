@@ -68,6 +68,7 @@ import { AdminComponent } from './component/admin/admin.component';
 import { AdminMainScreenComponent } from './component/admin/screen/main-screen/admin-main-screen.component';
 import { AddAssemblerComponent } from './component/admin/screen/add-assembler/add-assembler.component';
 import { AddCourierComponent } from './component/admin/screen/add-courier/add-courier.component';
+import {CdkDrag, CdkDragPlaceholder, CdkDragPreview, CdkDropList, CdkDropListGroup} from "@angular/cdk/drag-drop";
 
 registerLocaleData(localeRu);
 
@@ -115,7 +116,8 @@ registerLocaleData(localeRu);
         MatButtonModule, MatAutocompleteModule, ReactiveFormsModule,
         AsyncPipe, MatDividerModule, ScrollingModule, MatGridListModule,
         MatGridListModule, MatPaginatorModule, HttpClientModule, MatMenuModule,
-        OverlayModule, DialogModule, NgOptimizedImage
+        OverlayModule, DialogModule, NgOptimizedImage, CdkDropList, CdkDrag, CdkDropListGroup,
+        CdkDragPreview, CdkDragPlaceholder
     ],
   providers: [
       SessionStorageService,
