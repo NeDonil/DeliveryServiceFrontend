@@ -1,6 +1,6 @@
 <div cdkDropListGroup class="w-full h-full bg-blue-100 flex justify-between p-5">
-    <app-status-column class="w-1/4" [title]="'Заказы'" [legend]="'Ожидают'" [status]="ORDER_STATUS.PLACED"></app-status-column>
+    <app-status-column class="w-1/4" [title]="'Заказы'" [legend]="'Ожидают'" [status]="ORDER_STATUS.PLACED" [showEmployee]="false"></app-status-column>
     <app-status-column class="w-1/4" [title]="'Сборка'" [legend]="'Собираются'" [status]="ORDER_STATUS.ASSEMBLING"></app-status-column>
-    <app-status-column class="w-1/4" [title]="'Сборка'" [legend]="'Собраны'" [status]="ORDER_STATUS.ASSEMBLED"></app-status-column>
+    <app-status-column class="w-1/4" [title]="'Ждут доставки'" [legend]="'Собраны'" [status]="ORDER_STATUS.ASSEMBLED" [showEmployee]="false"></app-status-column>
     <app-status-column class="w-1/4" [title]="'Доставка'" [legend]="'Доставляются'" [status]="ORDER_STATUS.DELIVERING"></app-status-column>
 </div>

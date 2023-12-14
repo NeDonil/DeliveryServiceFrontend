@@ -7,4 +7,5 @@ import {OrderWithEmployee} from "../../../../model/OrderWithEmployee";
 })
 export class ColumnItemComponent {
     @Input() order !: OrderWithEmployee;
+    @Input() showEmployee !: boolean;
 }

@@ -14,6 +14,7 @@ export class StatusColumnComponent implements OnInit, OnDestroy{
     @Input() title !: string;
     @Input() legend !: string;
     @Input() status !: ORDER_STATUS;
+    @Input() showEmployee = true;
 
     orders !: OrderWithEmployee[];
     ordersSubscription !: Subscription;
